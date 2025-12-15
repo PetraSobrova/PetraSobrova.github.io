@@ -2,6 +2,7 @@
 layout: home
 custom_js:
   - scroll-reveal
+  - crazy-effects
 ---
 
 ## Experience

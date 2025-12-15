@@ -1,49 +1,90 @@
 @import 'colors';
 
-// Modern, Senior Designer Aesthetic with Wow Factor
+// High-Contrast Aesthetic with Crazy X-Factor
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap');
 
 html, body { 
-  background: #0a0a0a; 
-  color: #e0e0e0;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: $outer-bg-color; 
+  color: $fg-color;
+  font-family: 'Inter', monospace;
   font-size: 16px;
   line-height: 1.6;
   margin: 0;
   min-height: 100%;
   overflow-x: hidden;
+  position: relative;
+}
+
+// ============ CRAZY X-FACTOR: MOUSE-FOLLOWING GLOW ============
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(255, 39, 119, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 1;
+  border-radius: 50%;
+  display: none;
 }
 
 .w {
   max-width: 900px;
   margin: 0 auto;
   padding: 4rem 2rem;
+  position: relative;
+  z-index: 2;
 }
 
 header {
   margin-bottom: 4rem;
   text-align: left;
-  animation: fadeInDown 0.8s ease-out;
+  animation: glitchIn 0.8s ease-out;
   
   h1 {
     font-family: 'Playfair Display', serif;
     font-size: 4rem;
     font-weight: 800;
     margin: 0;
-    color: #ffffff;
+    color: $link-color;
     letter-spacing: -0.02em;
     line-height: 1.1;
-    background: linear-gradient(135deg, #ffffff 0%, #e0e0e0 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    position: relative;
+    
+    &::before,
+    &::after {
+      content: attr(data-text);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+    }
+    
+    &::before {
+      animation: glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+      color: $fg-color;
+      z-index: -1;
+      text-shadow: -2px 0 $fg-color;
+    }
+    
+    &::after {
+      animation: glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite reverse;
+      color: $link-color;
+      z-index: -2;
+      text-shadow: 2px 0 $link-color;
+    }
   }
   
   p {
     font-size: 1.2rem;
-    color: #a0a0a0;
+    color: $fg-color;
     max-width: 600px;
     margin-top: 1.5rem;
+    text-shadow: 0 0 10px rgba(255, 39, 119, 0.3);
   }
 }
 
@@ -52,20 +93,22 @@ h2 {
   font-size: 2.5rem;
   margin-top: 5rem;
   margin-bottom: 2rem;
-  color: #ffffff;
-  border-bottom: 1px solid #333;
+  color: $link-color;
+  border-bottom: 2px solid $fg-color;
   padding-bottom: 0.5rem;
   position: relative;
+  text-transform: uppercase;
+  letter-spacing: 2px;
   
   &::after {
     content: '';
     position: absolute;
-    bottom: -1px;
+    bottom: -2px;
     left: 0;
-    width: 0;
-    height: 1px;
-    background: linear-gradient(90deg, #00ff88, transparent);
-    animation: expandLine 1s ease-out forwards;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, $fg-color, transparent);
+    animation: expandLine 1.5s ease-out forwards;
   }
 }
 
@@ -73,19 +116,47 @@ h3 {
   font-size: 1.5rem;
   font-weight: 600;
   margin: 0;
-  color: #ffffff;
+  color: $link-color;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 // ============ ANIMATIONS ============
 
-@keyframes fadeInDown {
-  from {
-    opacity: 0;
-    transform: translateY(-30px);
+@keyframes glitch {
+  0% {
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
   }
-  to {
+  20% {
+    clip-path: polygon(0 20%, 100% 0, 100% 20%, 0 100%);
+  }
+  40% {
+    clip-path: polygon(0 40%, 100% 20%, 100% 60%, 0 80%);
+  }
+  60% {
+    clip-path: polygon(0 60%, 100% 40%, 100% 80%, 0 100%);
+  }
+  80% {
+    clip-path: polygon(0 80%, 100% 60%, 100% 100%, 0 100%);
+  }
+  100% {
+    clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+  }
+}
+
+@keyframes glitchIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px) skewX(-10deg);
+    text-shadow: -2px 0 $fg-color, 2px 0 $link-color;
+  }
+  50% {
+    text-shadow: -4px 0 $fg-color, 4px 0 $link-color;
+  }
+  100% {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) skewX(0);
+    text-shadow: 0 0 0 transparent;
   }
 }
 
@@ -109,21 +180,21 @@ h3 {
   }
 }
 
-@keyframes glowPulse {
+@keyframes neonFlicker {
   0%, 100% {
-    box-shadow: 0 0 20px rgba(0, 255, 136, 0.3), inset 0 0 20px rgba(0, 255, 136, 0.1);
+    text-shadow: 0 0 10px $fg-color, 0 0 20px $fg-color;
   }
   50% {
-    box-shadow: 0 0 40px rgba(0, 255, 136, 0.6), inset 0 0 30px rgba(0, 255, 136, 0.2);
+    text-shadow: 0 0 5px $fg-color, 0 0 10px $fg-color;
   }
 }
 
-@keyframes imageReveal {
-  from {
-    clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+@keyframes scanlines {
+  0% {
+    transform: translateY(0);
   }
-  to {
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  100% {
+    transform: translateY(10px);
   }
 }
 
@@ -134,6 +205,7 @@ h3 {
   grid-template-columns: 1fr;
   gap: 4rem;
   margin-top: 2rem;
+  position: relative;
 }
 
 .experience-item {
@@ -143,16 +215,46 @@ h3 {
   align-items: start;
   animation: slideInLeft 0.8s ease-out;
   animation-fill-mode: both;
+  position: relative;
   
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
   }
   
-  // Stagger animation for each item
   &:nth-child(1) { animation-delay: 0.1s; }
   &:nth-child(2) { animation-delay: 0.2s; }
   &:nth-child(3) { animation-delay: 0.3s; }
   &:nth-child(4) { animation-delay: 0.4s; }
+  
+  // Crazy X-Factor: Neon border pulse on hover
+  &::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(45deg, $fg-color, $link-color, $fg-color);
+    background-size: 300% 300%;
+    border-radius: 12px;
+    opacity: 0;
+    z-index: -1;
+    animation: gradientShift 3s ease infinite;
+    transition: opacity 0.3s ease;
+  }
+  
+  &:hover::before {
+    opacity: 0.3;
+  }
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 // ============ IMAGE HOVER EFFECTS ============
@@ -165,9 +267,9 @@ h3 {
   position: relative;
   cursor: pointer;
   transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
-  filter: grayscale(100%);
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-  border: 2px solid transparent;
+  filter: grayscale(100%) contrast(1.2);
+  box-shadow: 0 0 20px rgba(255, 39, 119, 0.3);
+  border: 2px solid $fg-color;
   
   &::before {
     content: '';
@@ -176,11 +278,18 @@ h3 {
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(circle at 30% 30%, rgba(0, 255, 136, 0.2), transparent 50%);
+    background: repeating-linear-gradient(
+      0deg,
+      rgba(255, 39, 119, 0.15),
+      rgba(255, 39, 119, 0.15) 1px,
+      transparent 1px,
+      transparent 2px
+    );
     opacity: 0;
     border-radius: 12px;
     pointer-events: none;
-    transition: opacity 0.6s ease;
+    animation: scanlines 8s linear infinite;
+    transition: opacity 0.3s ease;
   }
   
   &::after {
@@ -190,7 +299,7 @@ h3 {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(0, 255, 136, 0.1) 0%, transparent 50%, rgba(255, 0, 136, 0.1) 100%);
+    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.1), transparent 50%);
     opacity: 0;
     border-radius: 12px;
     pointer-events: none;
@@ -198,17 +307,16 @@ h3 {
   }
   
   &:hover {
-    filter: grayscale(0%);
-    transform: scale(1.05) translateY(-10px);
+    filter: grayscale(0%) contrast(1.3) brightness(1.1);
+    transform: scale(1.08) translateY(-15px);
     box-shadow: 
-      0 20px 60px rgba(0, 255, 136, 0.3),
-      0 0 40px rgba(0, 255, 136, 0.2),
-      inset 0 0 20px rgba(0, 255, 136, 0.1);
-    border-color: rgba(0, 255, 136, 0.5);
+      0 0 30px $fg-color,
+      0 0 60px rgba(255, 39, 119, 0.5),
+      inset 0 0 20px rgba(255, 39, 119, 0.2);
+    border-color: $link-color;
     
     &::before {
-      opacity: 1;
-      animation: glowPulse 2s ease-in-out infinite;
+      opacity: 0.4;
     }
     
     &::after {
@@ -226,6 +334,7 @@ h3 {
     position: relative;
     display: inline-block;
     transition: all 0.4s ease;
+    animation: neonFlicker 3s ease-in-out infinite;
     
     &::after {
       content: '';
@@ -234,7 +343,8 @@ h3 {
       left: 0;
       width: 0;
       height: 2px;
-      background: linear-gradient(90deg, #00ff88, #ff0088);
+      background: $fg-color;
+      box-shadow: 0 0 10px $fg-color;
       transition: width 0.4s ease;
     }
   }
@@ -245,10 +355,11 @@ h3 {
   
   .company {
     font-weight: 600;
-    color: #ffffff;
+    color: $link-color;
     margin: 0.5rem 0 0.2rem 0;
     position: relative;
     display: inline-block;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
     
     &::before {
       content: '';
@@ -257,7 +368,8 @@ h3 {
       left: 0;
       width: 0;
       height: 1px;
-      background: #00ff88;
+      background: $fg-color;
+      box-shadow: 0 0 5px $fg-color;
       transition: width 0.4s ease;
     }
   }
@@ -268,19 +380,21 @@ h3 {
   
   .location, .date {
     font-size: 0.9rem;
-    color: #888;
+    color: $fg-color;
     margin: 0;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
+    text-shadow: 0 0 5px rgba(255, 39, 119, 0.3);
   }
   
   &:hover .location, &:hover .date {
-    color: #00ff88;
+    text-shadow: 0 0 15px $fg-color;
+    transform: translateX(5px);
   }
   
   ul {
     margin-top: 1rem;
     padding-left: 1.2rem;
-    color: #b0b0b0;
+    color: $fg-color;
     
     li {
       margin-bottom: 0.5rem;
@@ -291,15 +405,17 @@ h3 {
         content: '▸';
         position: absolute;
         left: -1.2rem;
-        color: #00ff88;
+        color: $link-color;
         opacity: 0;
         transition: opacity 0.3s ease;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
       }
     }
   }
   
   &:hover ul li {
-    color: #e0e0e0;
+    color: $link-color;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
     
     &::before {
       opacity: 1;
@@ -318,18 +434,22 @@ h3 {
     padding-left: 1.5rem;
     position: relative;
     transition: all 0.3s ease;
+    color: $fg-color;
     
     &::before {
       content: '✦';
       position: absolute;
       left: 0;
-      color: #00ff88;
+      color: $link-color;
       opacity: 0;
       transition: opacity 0.3s ease;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
     }
     
     &:hover {
       padding-left: 2rem;
+      color: $link-color;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
       
       &::before {
         opacity: 1;
@@ -337,25 +457,27 @@ h3 {
     }
     
     strong {
-      color: #ffffff;
+      color: $link-color;
       display: block;
       font-size: 1.1rem;
       margin-bottom: 0.3rem;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
     }
     
     span {
-      color: #888;
+      color: $fg-color;
       font-size: 0.9rem;
     }
   }
 }
 
 a {
-  color: #ffffff;
+  color: $link-color;
   text-decoration: none;
-  border-bottom: 1px solid #444;
+  border-bottom: 1px solid $fg-color;
   transition: all 0.3s ease;
   position: relative;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
   
   &::after {
     content: '';
@@ -364,14 +486,15 @@ a {
     left: 0;
     width: 0;
     height: 1px;
-    background: #00ff88;
+    background: $fg-color;
+    box-shadow: 0 0 10px $fg-color;
     transition: width 0.3s ease;
   }
   
   &:hover {
-    border-color: #00ff88;
-    color: #00ff88;
-    text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+    border-color: $link-color;
+    color: $fg-color;
+    text-shadow: 0 0 15px $fg-color;
     
     &::after {
       width: 100%;
@@ -381,9 +504,10 @@ a {
 
 hr {
   border: 0;
-  border-top: 1px solid #333;
+  border-top: 1px solid $fg-color;
   margin: 4rem 0;
   position: relative;
+  box-shadow: 0 0 10px rgba(255, 39, 119, 0.3);
   
   &::after {
     content: '';
@@ -392,26 +516,15 @@ hr {
     left: 0;
     width: 100%;
     height: 1px;
-    background: linear-gradient(90deg, transparent, #00ff88, transparent);
+    background: linear-gradient(90deg, transparent, $fg-color, transparent);
     opacity: 0;
     transition: opacity 0.4s ease;
+    box-shadow: 0 0 20px $fg-color;
   }
 }
 
 hr:hover::after {
   opacity: 1;
-}
-
-// ============ SCROLL REVEAL ============
-
-.experience-item {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-// Hide menu if not needed
-nav {
-  display: none;
 }
 
 // ============ RESPONSIVE ============
@@ -428,4 +541,9 @@ nav {
   .experience-img {
     height: 250px;
   }
+}
+
+// Hide menu if not needed
+nav {
+  display: none;
 }
