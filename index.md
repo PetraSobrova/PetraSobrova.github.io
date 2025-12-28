@@ -1,6 +1,7 @@
 ---
 layout: home
 custom_js:
+  - liquid-background
   - premium-interactions
 ---
 
@@ -67,15 +68,48 @@ custom_js:
   </div>
 </div>
 
-## Education
+---
 
-- **University of Hradec Králové** — B.A. Tourism Management (2024 – Present)
-- **Jan Amos Komenský Academy, Liberec** — Post-secondary English Language Studies (2023 – 2024)
-- **Business Academy, Hotel School and Vocational School, Turnov** — Tourism Program (2019 – 2023)
+## Education & Skills
 
-## Skills
+<div class="education-skills-section">
+  <div class="education-column">
+    <h3>Education</h3>
+    <ul class="education-list">
+      <li>
+        <strong>University of Hradec Králové</strong>
+        <span>B.A. Tourism Management (2024 – Present)</span>
+      </li>
+      <li>
+        <strong>Jan Amos Komenský Academy, Liberec</strong>
+        <span>Post-secondary English Language Studies (2023 – 2024)</span>
+      </li>
+      <li>
+        <strong>Business Academy, Hotel School and Vocational School, Turnov</strong>
+        <span>Tourism Program (2019 – 2023)</span>
+      </li>
+    </ul>
+  </div>
 
-- **Tourism & Hospitality**: Customer service, visitor coordination, event assistance, travel organization
-- **Software**: Microsoft Office, rezervuj.com, Previo, AGNIS, Roundcube Webmail
-- **Languages**: Czech (Native), English (B2 – Cambridge Certificate)
-- **Strengths**: Communication, organization, teamwork, adaptability
+  <div class="skills-column">
+    <h3>Skills</h3>
+    <ul class="skills-list">
+      <li>
+        <strong>Tourism & Hospitality</strong>
+        <span>Customer service, visitor coordination, event assistance, travel organization</span>
+      </li>
+      <li>
+        <strong>Software</strong>
+        <span>Microsoft Office, rezervuj.com, Previo, AGNIS, Roundcube Webmail</span>
+      </li>
+      <li>
+        <strong>Languages</strong>
+        <span>Czech (Native), English (B2 – Cambridge Certificate)</span>
+      </li>
+      <li>
+        <strong>Core Strengths</strong>
+        <span>Communication, organization, teamwork, adaptability</span>
+      </li>
+    </ul>
+  </div>
+</div>

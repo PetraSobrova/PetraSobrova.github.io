@@ -1,6 +1,6 @@
 @import 'colors';
 
-// Apple-Inspired Liquid Glass Design System
+// ============ MIND-BLOWING SLEEK DESIGN SYSTEM ============
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 * {
@@ -18,86 +18,95 @@ html, body {
   min-height: 100vh;
   overflow-x: hidden;
   letter-spacing: -0.3px;
+  position: relative;
+}
+
+main {
+  position: relative;
+  z-index: 2;
 }
 
 .w {
-  max-width: 1000px;
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 6rem 3rem;
+  padding: 8rem 4rem;
+  position: relative;
+  z-index: 2;
+  
+  @media (max-width: 1024px) {
+    padding: 6rem 3rem;
+  }
   
   @media (max-width: 768px) {
     padding: 4rem 2rem;
   }
 }
 
-// ============ HEADER ============
+// ============ HEADER / HERO SECTION ============
 
 header {
-  margin-bottom: 6rem;
+  margin-bottom: 8rem;
   text-align: left;
-  animation: fadeInUp 0.8s ease-out;
+  animation: fadeInUp 0.9s ease-out;
   
   h1 {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size: 5rem;
+    font-size: 5.5rem;
     font-weight: 900;
-    margin: 0 0 1rem 0;
+    margin: 0 0 1.5rem 0;
     color: $fg-color;
-    letter-spacing: -2px;
-    line-height: 1.1;
+    letter-spacing: -2.5px;
+    line-height: 1.05;
+    background: linear-gradient(135deg, $fg-color 0%, #333 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     
     @media (max-width: 768px) {
-      font-size: 3rem;
+      font-size: 3.5rem;
+      letter-spacing: -1.5px;
     }
   }
   
   p {
-    font-size: 1.125rem;
+    font-size: 1.25rem;
     color: #86868b;
-    max-width: 700px;
+    max-width: 750px;
     margin-top: 1.5rem;
     font-weight: 400;
     line-height: 1.8;
+    letter-spacing: -0.2px;
   }
 }
 
 h2 {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: 2rem;
-  font-weight: 700;
-  margin-top: 6rem;
-  margin-bottom: 3rem;
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-top: 8rem;
+  margin-bottom: 3.5rem;
   color: $fg-color;
-  letter-spacing: -0.5px;
+  letter-spacing: -1px;
+  position: relative;
   
   @media (max-width: 768px) {
-    font-size: 1.5rem;
-    margin-top: 4rem;
+    font-size: 1.75rem;
+    margin-top: 6rem;
+    margin-bottom: 2.5rem;
   }
 }
 
 h3 {
-  font-size: 1.25rem;
-  font-weight: 600;
+  font-size: 1.35rem;
+  font-weight: 700;
   margin: 0;
   color: $fg-color;
-  letter-spacing: -0.3px;
+  letter-spacing: -0.4px;
 }
 
 // ============ ANIMATIONS ============
 
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes slideInUp {
   from {
     opacity: 0;
     transform: translateY(40px);
@@ -108,23 +117,23 @@ h3 {
   }
 }
 
-@keyframes glassHover {
+@keyframes slideInUp {
   from {
-    backdrop-filter: blur(10px);
-    background: rgba(255, 255, 255, 0.5);
+    opacity: 0;
+    transform: translateY(50px);
   }
   to {
-    backdrop-filter: blur(20px);
-    background: rgba(255, 255, 255, 0.8);
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-@keyframes shimmer {
-  0% {
-    background-position: -1000px 0;
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
   }
-  100% {
-    background-position: 1000px 0;
+  50% {
+    transform: translateY(-8px);
   }
 }
 
@@ -133,17 +142,21 @@ h3 {
 .experience-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2.5rem;
+  gap: 3rem;
   margin-top: 2rem;
 }
 
 .experience-item {
   display: grid;
-  grid-template-columns: 1fr 1.4fr;
-  gap: 2.5rem;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 3rem;
   align-items: start;
-  animation: slideInUp 0.8s ease-out;
+  animation: slideInUp 0.9s ease-out;
   animation-fill-mode: both;
+  
+  @media (max-width: 1024px) {
+    gap: 2.5rem;
+  }
   
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
@@ -156,27 +169,27 @@ h3 {
   &:nth-child(4) { animation-delay: 0.4s; }
 }
 
-// ============ IMAGE WITH LIQUID GLASS OVERLAY ============
+// ============ EXPERIENCE IMAGE ============
 
 .experience-img {
   width: 100%;
-  height: 320px;
+  height: 360px;
   object-fit: cover;
-  border-radius: 20px;
+  border-radius: 24px;
   position: relative;
   cursor: pointer;
-  transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
-  box-shadow: 0 10px 40px $shadow-medium;
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  transition: all 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.6);
   
   &::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
-    border-radius: 20px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 100%);
+    border-radius: 24px;
     opacity: 0;
-    transition: opacity 0.6s ease;
+    transition: opacity 0.7s ease;
     pointer-events: none;
   }
   
@@ -184,17 +197,17 @@ h3 {
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.3), transparent 50%);
-    border-radius: 20px;
+    background: radial-gradient(circle at 35% 35%, rgba(255, 255, 255, 0.4), transparent 60%);
+    border-radius: 24px;
     opacity: 0;
-    transition: opacity 0.6s ease;
+    transition: opacity 0.7s ease;
     pointer-events: none;
   }
   
   &:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
-    border-color: rgba(255, 255, 255, 0.8);
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.15);
+    border-color: rgba(255, 255, 255, 0.9);
     
     &::before {
       opacity: 1;
@@ -204,129 +217,186 @@ h3 {
       opacity: 1;
     }
   }
+  
+  @media (max-width: 768px) {
+    height: 280px;
+  }
 }
 
-// ============ EXPERIENCE DETAILS WITH GLASS CARD ============
+// ============ EXPERIENCE DETAILS CARD ============
 
 .experience-details {
   position: relative;
-  padding: 2rem;
-  background: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(20px);
-  border: 1px solid $glass-border;
-  border-radius: 20px;
-  transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+  padding: 2.5rem;
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 24px;
+  transition: all 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
   
   &:hover {
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(30px);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
-    border-color: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(35px);
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.12);
+    border-color: rgba(255, 255, 255, 0.7);
+    transform: translateY(-6px);
   }
   
   h3 {
     position: relative;
     display: block;
-    margin-bottom: 0.5rem;
-    transition: all 0.3s ease;
+    margin-bottom: 0.8rem;
+    transition: all 0.4s ease;
     
     &::after {
       content: '';
       position: absolute;
-      bottom: -8px;
+      bottom: -10px;
       left: 0;
       width: 0;
-      height: 2px;
-      background: $link-color;
-      transition: width 0.4s ease;
+      height: 3px;
+      background: linear-gradient(90deg, $link-color, rgba(0, 113, 227, 0.5));
+      transition: width 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+      border-radius: 2px;
     }
   }
   
   &:hover h3::after {
-    width: 40px;
+    width: 50px;
   }
   
   .company {
-    font-weight: 600;
+    font-weight: 700;
     color: $fg-color;
-    margin: 0.5rem 0 0.3rem 0;
-    font-size: 1rem;
+    margin: 0.8rem 0 0.4rem 0;
+    font-size: 1.05rem;
+    letter-spacing: -0.3px;
   }
   
   .location, .date {
     font-size: 0.9rem;
     color: #86868b;
-    margin: 0.2rem 0;
+    margin: 0.3rem 0;
     font-weight: 500;
+    letter-spacing: -0.2px;
   }
   
   ul {
-    margin-top: 1.2rem;
-    padding-left: 1.5rem;
+    margin-top: 1.5rem;
+    padding-left: 1.8rem;
     color: #555;
     list-style: none;
     
     li {
-      margin-bottom: 0.6rem;
+      margin-bottom: 0.7rem;
       position: relative;
       font-size: 0.95rem;
-      line-height: 1.6;
+      line-height: 1.7;
       transition: all 0.3s ease;
+      font-weight: 500;
       
       &::before {
-        content: '–';
+        content: '→';
         position: absolute;
-        left: -1.5rem;
+        left: -1.8rem;
         color: $link-color;
-        font-weight: 600;
+        font-weight: 700;
+        opacity: 0;
+        transition: all 0.3s ease;
       }
     }
     
     li:hover {
       color: $fg-color;
-      transform: translateX(4px);
+      transform: translateX(6px);
+      
+      &::before {
+        opacity: 1;
+        transform: translateX(-4px);
+      }
     }
+  }
+  
+  @media (max-width: 768px) {
+    padding: 1.8rem;
   }
 }
 
-// ============ EDUCATION & SKILLS ============
+// ============ EDUCATION & SKILLS SECTION ============
+
+.education-skills-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  margin-top: 3rem;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: $fg-color;
+  }
+}
+
+.education-column, .skills-column {
+  animation: slideInUp 1s ease-out;
+}
+
+.education-column {
+  animation-delay: 0.5s;
+}
+
+.skills-column {
+  animation-delay: 0.6s;
+}
+
+// ============ EDUCATION & SKILLS LISTS ============
 
 .education-list, .skills-list {
   list-style: none;
   padding: 0;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.5rem;
+  gap: 1.8rem;
   
   li {
-    padding: 1.5rem;
+    padding: 1.8rem;
     background: rgba(255, 255, 255, 0.5);
-    backdrop-filter: blur(10px);
-    border: 1px solid $glass-border;
-    border-radius: 16px;
-    transition: all 0.4s ease;
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    cursor: pointer;
     
     &:hover {
-      background: rgba(255, 255, 255, 0.7);
-      backdrop-filter: blur(20px);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(25px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
       border-color: rgba(255, 255, 255, 0.5);
-      transform: translateY(-4px);
+      transform: translateY(-6px);
     }
     
     strong {
       color: $fg-color;
       display: block;
-      font-size: 1rem;
-      margin-bottom: 0.3rem;
-      font-weight: 600;
+      font-size: 1.05rem;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+      letter-spacing: -0.3px;
     }
     
     span {
       color: #86868b;
       font-size: 0.9rem;
       font-weight: 500;
+      line-height: 1.6;
+      letter-spacing: -0.2px;
     }
   }
 }
@@ -337,9 +407,9 @@ a {
   color: $link-color;
   text-decoration: none;
   border-bottom: 1px solid transparent;
-  transition: all 0.3s ease;
+  transition: all 0.4s ease;
   position: relative;
-  font-weight: 500;
+  font-weight: 600;
   
   &::after {
     content: '';
@@ -347,9 +417,9 @@ a {
     bottom: -2px;
     left: 0;
     width: 0;
-    height: 1px;
+    height: 2px;
     background: $link-color;
-    transition: width 0.3s ease;
+    transition: width 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
   }
   
   &:hover {
@@ -365,28 +435,24 @@ a {
 
 hr {
   border: 0;
-  border-top: 1px solid rgba(0, 0, 0, 0.08);
-  margin: 4rem 0;
-  background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.08), transparent);
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  margin: 6rem 0;
+  background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.06), transparent);
 }
 
 // ============ RESPONSIVE ============
 
 @media (max-width: 768px) {
   header h1 {
-    font-size: 2.5rem;
+    font-size: 3rem;
   }
   
   h2 {
-    font-size: 1.5rem;
+    font-size: 1.75rem;
   }
   
   .experience-img {
     height: 250px;
-  }
-  
-  .experience-details {
-    padding: 1.5rem;
   }
 }
 
