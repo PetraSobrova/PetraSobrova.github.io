@@ -2,6 +2,7 @@
 layout: home
 custom_js:
   - liquid-background
+  - global-cities
   - premium-interactions
 ---
 
