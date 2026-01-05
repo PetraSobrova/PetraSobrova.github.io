@@ -1,24 +1,23 @@
-// ============ GLOBAL CONNECTIVITY CITY TRACKER ============
+// ============ GLOBAL CONNECTIVITY WITH ANIMATED AIRPLANE ============
 
 class GlobalCities {
   constructor() {
+    // Cities ordered West to East
     this.cities = [
-      { name: 'Tokyo', lat: 35.6762, lon: 139.6503, offset: 9 },
-      { name: 'Singapore', lat: 1.3521, lon: 103.8198, offset: 8 },
-      { name: 'Dubai', lat: 25.2048, lon: 55.2708, offset: 4 },
-      { name: 'Istanbul', lat: 41.0082, lon: 28.9784, offset: 3 },
-      { name: 'London', lat: 51.5074, lon: -0.1278, offset: 0 },
-      { name: 'Paris', lat: 48.8566, lon: 2.3522, offset: 1 },
-      { name: 'Berlin', lat: 52.5200, lon: 13.4050, offset: 1 },
-      { name: 'New York', lat: 40.7128, lon: -74.0060, offset: -5 },
       { name: 'Los Angeles', lat: 34.0522, lon: -118.2437, offset: -8 },
       { name: 'Mexico City', lat: 19.4326, lon: -99.1332, offset: -6 },
-      { name: 'São Paulo', lat: -23.5505, lon: -46.6333, offset: -3 },
-      { name: 'Sydney', lat: -33.8688, lon: 151.2093, offset: 11 }
+      { name: 'New York', lat: 40.7128, lon: -74.0060, offset: -5 },
+      { name: 'London', lat: 51.5074, lon: -0.1278, offset: 0 },
+      { name: 'Paris', lat: 48.8566, lon: 2.3522, offset: 1 },
+      { name: 'Dubai', lat: 25.2048, lon: 55.2708, offset: 4 },
+      { name: 'Singapore', lat: 1.3521, lon: 103.8198, offset: 8 },
+      { name: 'Tokyo', lat: 35.6762, lon: 139.6503, offset: 9 }
     ];
     
     this.createGlobalLine();
+    this.createAirplane();
     this.updateClocks();
+    this.animateAirplane();
     setInterval(() => this.updateClocks(), 1000);
   }
   
@@ -44,9 +43,10 @@ class GlobalCities {
     
     // Cities container
     const citiesContainer = document.createElement('div');
+    citiesContainer.id = 'cities-container';
     citiesContainer.style.cssText = `
       position: relative;
-      height: 120px;
+      height: 140px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -150,8 +150,88 @@ class GlobalCities {
     }
   }
   
+  createAirplane() {
+    const airplane = document.createElement('div');
+    airplane.id = 'airplane';
+    airplane.style.cssText = `
+      position: fixed;
+      width: 30px;
+      height: 30px;
+      pointer-events: none;
+      z-index: 3;
+      font-size: 24px;
+      line-height: 30px;
+      text-align: center;
+    `;
+    airplane.textContent = '✈';
+    document.body.appendChild(airplane);
+    this.airplane = airplane;
+  }
+  
+  animateAirplane() {
+    let currentCityIndex = 0;
+    let progress = 0;
+    const duration = 3000; // 3 seconds per city
+    let startTime = Date.now();
+    
+    const animate = () => {
+      const now = Date.now();
+      const elapsed = now - startTime;
+      progress = (elapsed % duration) / duration;
+      
+      // Determine current and next city
+      currentCityIndex = Math.floor((elapsed / duration) % this.cities.length);
+      const nextCityIndex = (currentCityIndex + 1) % this.cities.length;
+      
+      const citiesContainer = document.getElementById('cities-container');
+      if (!citiesContainer) {
+        requestAnimationFrame(animate);
+        return;
+      }
+      
+      const cityNodes = citiesContainer.querySelectorAll('.city-node');
+      if (cityNodes.length < 2) {
+        requestAnimationFrame(animate);
+        return;
+      }
+      
+      const currentNode = cityNodes[currentCityIndex];
+      const nextNode = cityNodes[nextCityIndex];
+      
+      const currentRect = currentNode.getBoundingClientRect();
+      const nextRect = nextNode.getBoundingClientRect();
+      
+      // Calculate parabolic arc
+      const startX = currentRect.left + currentRect.width / 2;
+      const startY = currentRect.top;
+      const endX = nextRect.left + nextRect.width / 2;
+      const endY = nextRect.top;
+      
+      // Parabola height decreases for each subsequent arc
+      const maxHeight = 80 - (currentCityIndex * 8);
+      
+      // Quadratic easing for parabola
+      const x = startX + (endX - startX) * progress;
+      const y = startY + (endY - startY) * progress - Math.sin(progress * Math.PI) * maxHeight;
+      
+      // Rotation based on direction
+      const angle = Math.atan2(endY - startY, endX - startX) * (180 / Math.PI);
+      
+      this.airplane.style.left = (x - 15) + 'px';
+      this.airplane.style.top = (y - 15) + 'px';
+      this.airplane.style.transform = `rotate(${angle}deg)`;
+      
+      requestAnimationFrame(animate);
+    };
+    
+    animate();
+  }
+  
   updateClocks() {
-    const cityNodes = document.querySelectorAll('.city-node');
+    const citiesContainer = document.getElementById('cities-container');
+    if (!citiesContainer) return;
+    
+    const cityNodes = citiesContainer.querySelectorAll('.city-node');
     
     this.cities.forEach((city, index) => {
       const node = cityNodes[index];
