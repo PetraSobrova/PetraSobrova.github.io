@@ -1,4 +1,4 @@
-// ============ GLOBAL CONNECTIVITY WITH ANIMATED AIRPLANE ============
+// ============ GLOBAL CONNECTIVITY WITH ANIMATED AIRPLANE & CITY HIGHLIGHTS ============
 
 class GlobalCities {
   constructor() {
@@ -27,7 +27,7 @@ class GlobalCities {
     container.style.cssText = `
       position: relative;
       z-index: 2;
-      margin: 5rem 0;
+      margin: 3rem 0;
       padding: 4rem 0;
     `;
     
@@ -57,6 +57,7 @@ class GlobalCities {
     this.cities.forEach((city, index) => {
       const cityNode = document.createElement('div');
       cityNode.className = 'city-node';
+      cityNode.dataset.index = index;
       cityNode.style.cssText = `
         position: absolute;
         left: ${(index / (this.cities.length - 1)) * 100}%;
@@ -68,6 +69,7 @@ class GlobalCities {
       
       // City dot
       const dot = document.createElement('div');
+      dot.className = 'city-dot';
       dot.style.cssText = `
         width: 12px;
         height: 12px;
@@ -168,20 +170,55 @@ class GlobalCities {
     this.airplane = airplane;
   }
   
+  highlightCity(index) {
+    const citiesContainer = document.getElementById('cities-container');
+    if (!citiesContainer) return;
+    
+    const cityNodes = citiesContainer.querySelectorAll('.city-node');
+    
+    // Remove previous highlights
+    cityNodes.forEach(node => {
+      const dot = node.querySelector('.city-dot');
+      const timeDisplay = node.querySelector('.city-time');
+      const coords = node.querySelector('.city-coords');
+      const name = node.querySelector('div:nth-child(2)');
+      
+      dot.style.boxShadow = '0 0 15px rgba(0, 113, 227, 0.4)';
+      timeDisplay.style.opacity = '0';
+      coords.style.opacity = '0';
+      name.style.color = '#1d1d1f';
+    });
+    
+    // Highlight current city
+    const currentNode = cityNodes[index];
+    if (currentNode) {
+      const dot = currentNode.querySelector('.city-dot');
+      const timeDisplay = currentNode.querySelector('.city-time');
+      const coords = currentNode.querySelector('.city-coords');
+      const name = currentNode.querySelector('div:nth-child(2)');
+      
+      dot.style.boxShadow = '0 0 40px rgba(0, 113, 227, 0.9)';
+      timeDisplay.style.opacity = '1';
+      coords.style.opacity = '1';
+      name.style.color = '#0071e3';
+    }
+  }
+  
   animateAirplane() {
-    let currentCityIndex = 0;
-    let progress = 0;
-    const duration = 3000; // 3 seconds per city
     let startTime = Date.now();
+    const segmentDuration = 1500; // 1.5 seconds per segment (faster)
     
     const animate = () => {
       const now = Date.now();
       const elapsed = now - startTime;
-      progress = (elapsed % duration) / duration;
       
-      // Determine current and next city
-      currentCityIndex = Math.floor((elapsed / duration) % this.cities.length);
-      const nextCityIndex = (currentCityIndex + 1) % this.cities.length;
+      // Determine current segment
+      const totalSegments = this.cities.length - 1;
+      const segmentIndex = Math.floor((elapsed / segmentDuration) % totalSegments);
+      const progress = ((elapsed / segmentDuration) % 1);
+      
+      // Highlight the current city being traveled to
+      this.highlightCity(segmentIndex + 1);
       
       const citiesContainer = document.getElementById('cities-container');
       if (!citiesContainer) {
@@ -195,24 +232,25 @@ class GlobalCities {
         return;
       }
       
-      const currentNode = cityNodes[currentCityIndex];
-      const nextNode = cityNodes[nextCityIndex];
+      const currentNode = cityNodes[segmentIndex];
+      const nextNode = cityNodes[segmentIndex + 1];
       
       const currentRect = currentNode.getBoundingClientRect();
       const nextRect = nextNode.getBoundingClientRect();
       
-      // Calculate parabolic arc
+      // Calculate parabolic arc with alternating heights
       const startX = currentRect.left + currentRect.width / 2;
       const startY = currentRect.top;
       const endX = nextRect.left + nextRect.width / 2;
       const endY = nextRect.top;
       
-      // Parabola height decreases for each subsequent arc
-      const maxHeight = 80 - (currentCityIndex * 8);
+      // Alternating parabola: upper for even segments, lower for odd
+      const isUpperArc = segmentIndex % 2 === 0;
+      const maxHeight = isUpperArc ? -100 : 100;
       
       // Quadratic easing for parabola
       const x = startX + (endX - startX) * progress;
-      const y = startY + (endY - startY) * progress - Math.sin(progress * Math.PI) * maxHeight;
+      const y = startY + (endY - startY) * progress + Math.sin(progress * Math.PI) * maxHeight;
       
       // Rotation based on direction
       const angle = Math.atan2(endY - startY, endX - startX) * (180 / Math.PI);

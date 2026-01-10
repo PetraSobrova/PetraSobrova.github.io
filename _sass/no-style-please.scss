@@ -45,7 +45,7 @@ main {
 // ============ HEADER / HERO SECTION ============
 
 header {
-  margin-bottom: 4rem;
+  margin-bottom: 1.5rem;
   text-align: left;
   animation: fadeInUp 0.9s ease-out;
   
@@ -195,38 +195,45 @@ h3 {
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
   align-items: start;
+  margin-left: 0;
   
   &:nth-child(even) {
     grid-template-columns: 1fr 1fr;
+    margin-right: 0;
     
     .timeline-header {
       order: 2;
+      grid-column: 2;
     }
     
     .timeline-image {
       order: 1;
+      grid-column: 1;
     }
     
     .timeline-details {
       order: 3;
-      grid-column: 1 / -1;
+      grid-column: 2;
     }
   }
   
   &:nth-child(odd) {
     grid-template-columns: 1fr 1fr;
+    margin-left: 0;
     
     .timeline-header {
       order: 1;
+      grid-column: 1;
     }
     
     .timeline-image {
       order: 2;
+      grid-column: 2;
     }
     
     .timeline-details {
       order: 3;
-      grid-column: 1 / -1;
+      grid-column: 1;
     }
   }
   
@@ -239,10 +246,12 @@ h3 {
       
       .timeline-header {
         order: 1;
+        grid-column: 1;
       }
       
       .timeline-image {
         order: 2;
+        grid-column: 1;
       }
       
       .timeline-details {
