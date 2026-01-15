@@ -1,17 +1,17 @@
-// ============ GLOBAL CONNECTIVITY WITH ANIMATED AIRPLANE & CITY HIGHLIGHTS ============
+// ============ GLOBAL CONNECTIVITY WITH ANIMATED AIRPLANE & DYNAMIC FLAG COLORS ============
 
 class GlobalCities {
   constructor() {
-    // Cities ordered West to East
+    // Cities ordered West to East with country flag colors
     this.cities = [
-      { name: 'Los Angeles', lat: 34.0522, lon: -118.2437, offset: -8 },
-      { name: 'Mexico City', lat: 19.4326, lon: -99.1332, offset: -6 },
-      { name: 'New York', lat: 40.7128, lon: -74.0060, offset: -5 },
-      { name: 'London', lat: 51.5074, lon: -0.1278, offset: 0 },
-      { name: 'Paris', lat: 48.8566, lon: 2.3522, offset: 1 },
-      { name: 'Dubai', lat: 25.2048, lon: 55.2708, offset: 4 },
-      { name: 'Singapore', lat: 1.3521, lon: 103.8198, offset: 8 },
-      { name: 'Tokyo', lat: 35.6762, lon: 139.6503, offset: 9 }
+      { name: 'Los Angeles', country: 'USA', lat: 34.0522, lon: -118.2437, offset: -8, flagColor: '#B22234' }, // Red from US flag
+      { name: 'Mexico City', country: 'Mexico', lat: 19.4326, lon: -99.1332, offset: -6, flagColor: '#CE1126' }, // Red from Mexican flag
+      { name: 'New York', country: 'USA', lat: 40.7128, lon: -74.0060, offset: -5, flagColor: '#B22234' }, // Red from US flag
+      { name: 'London', country: 'UK', lat: 51.5074, lon: -0.1278, offset: 0, flagColor: '#012169' }, // Blue from UK flag
+      { name: 'Paris', country: 'France', lat: 48.8566, lon: 2.3522, offset: 1, flagColor: '#002395' }, // Blue from French flag
+      { name: 'Dubai', country: 'UAE', lat: 25.2048, lon: 55.2708, offset: 4, flagColor: '#CE1126' }, // Red from UAE flag
+      { name: 'Singapore', country: 'Singapore', lat: 1.3521, lon: 103.8198, offset: 8, flagColor: '#FF0000' }, // Red from Singapore flag
+      { name: 'Tokyo', country: 'Japan', lat: 35.6762, lon: 139.6503, offset: 9, flagColor: '#BC002D' } // Red from Japanese flag
     ];
     
     this.createGlobalLine();
@@ -164,6 +164,8 @@ class GlobalCities {
       font-size: 24px;
       line-height: 30px;
       text-align: center;
+      filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.2));
+      transition: color 0.5s ease;
     `;
     airplane.textContent = '✈';
     document.body.appendChild(airplane);
@@ -220,6 +222,16 @@ class GlobalCities {
       // Highlight the current city being traveled to
       this.highlightCity(segmentIndex + 1);
       
+      // Update airplane color based on destination country flag
+      const destinationCity = this.cities[segmentIndex + 1];
+      if (destinationCity) {
+        // Smooth color interpolation
+        const startColor = this.cities[segmentIndex].flagColor;
+        const endColor = destinationCity.flagColor;
+        const interpolatedColor = this.interpolateColor(startColor, endColor, progress);
+        this.airplane.style.color = interpolatedColor;
+      }
+      
       const citiesContainer = document.getElementById('cities-container');
       if (!citiesContainer) {
         requestAnimationFrame(animate);
@@ -263,6 +275,28 @@ class GlobalCities {
     };
     
     animate();
+  }
+  
+  // Helper function to interpolate between two hex colors
+  interpolateColor(color1, color2, factor) {
+    const c1 = this.hexToRgb(color1);
+    const c2 = this.hexToRgb(color2);
+    
+    const r = Math.round(c1.r + (c2.r - c1.r) * factor);
+    const g = Math.round(c1.g + (c2.g - c1.g) * factor);
+    const b = Math.round(c1.b + (c2.b - c1.b) * factor);
+    
+    return `rgb(${r}, ${g}, ${b})`;
+  }
+  
+  // Helper function to convert hex to RGB
+  hexToRgb(hex) {
+    const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    return result ? {
+      r: parseInt(result[1], 16),
+      g: parseInt(result[2], 16),
+      b: parseInt(result[3], 16)
+    } : { r: 0, g: 113, b: 227 };
   }
   
   updateClocks() {
