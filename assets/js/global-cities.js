@@ -1,21 +1,86 @@
-// ============ GLOBAL CONNECTIVITY WITH ANIMATED AIRPLANE & DYNAMIC FLAG COLORS ============
+// ============ GLOBAL CONNECTIVITY WITH ANIMATED AIRPLANE, FLAG COLORS & FUN FACTS ============
 
 class GlobalCities {
   constructor() {
-    // Cities ordered West to East with country flag colors
+    // Cities ordered West to East with country flag colors and fun facts
     this.cities = [
-      { name: 'Los Angeles', country: 'USA', lat: 34.0522, lon: -118.2437, offset: -8, flagColor: '#B22234' }, // Red from US flag
-      { name: 'Mexico City', country: 'Mexico', lat: 19.4326, lon: -99.1332, offset: -6, flagColor: '#CE1126' }, // Red from Mexican flag
-      { name: 'New York', country: 'USA', lat: 40.7128, lon: -74.0060, offset: -5, flagColor: '#B22234' }, // Red from US flag
-      { name: 'London', country: 'UK', lat: 51.5074, lon: -0.1278, offset: 0, flagColor: '#012169' }, // Blue from UK flag
-      { name: 'Paris', country: 'France', lat: 48.8566, lon: 2.3522, offset: 1, flagColor: '#002395' }, // Blue from French flag
-      { name: 'Dubai', country: 'UAE', lat: 25.2048, lon: 55.2708, offset: 4, flagColor: '#CE1126' }, // Red from UAE flag
-      { name: 'Singapore', country: 'Singapore', lat: 1.3521, lon: 103.8198, offset: 8, flagColor: '#FF0000' }, // Red from Singapore flag
-      { name: 'Tokyo', country: 'Japan', lat: 35.6762, lon: 139.6503, offset: 9, flagColor: '#BC002D' } // Red from Japanese flag
+      { 
+        name: 'Los Angeles', 
+        country: 'USA', 
+        lat: 34.0522, 
+        lon: -118.2437, 
+        offset: -8, 
+        flagColor: '#B22234',
+        funFact: '🌟 Home to Hollywood, the entertainment capital of the world, where dreams are made on the silver screen.'
+      },
+      { 
+        name: 'Mexico City', 
+        country: 'Mexico', 
+        lat: 19.4326, 
+        lon: -99.1332, 
+        offset: -6, 
+        flagColor: '#CE1126',
+        funFact: '🏛️ Built on the ruins of the Aztec capital Tenochtitlan, it\'s one of the oldest cities in North America.'
+      },
+      { 
+        name: 'New York', 
+        country: 'USA', 
+        lat: 40.7128, 
+        lon: -74.0060, 
+        offset: -5, 
+        flagColor: '#B22234',
+        funFact: '🗽 The city that never sleeps, home to the iconic Statue of Liberty and Times Square\'s dazzling lights.'
+      },
+      { 
+        name: 'London', 
+        country: 'UK', 
+        lat: 51.5074, 
+        lon: -0.1278, 
+        offset: 0, 
+        flagColor: '#012169',
+        funFact: '👑 The historic heart of the British Empire, where Big Ben chimes and the Thames flows through centuries of history.'
+      },
+      { 
+        name: 'Paris', 
+        country: 'France', 
+        lat: 48.8566, 
+        lon: 2.3522, 
+        offset: 1, 
+        flagColor: '#002395',
+        funFact: '✨ The City of Light, famous for the Eiffel Tower, world-class art, and exquisite cuisine that defines elegance.'
+      },
+      { 
+        name: 'Dubai', 
+        country: 'UAE', 
+        lat: 25.2048, 
+        lon: 55.2708, 
+        offset: 4, 
+        flagColor: '#CE1126',
+        funFact: '🏙️ A modern marvel rising from the desert, home to the Burj Khalifa and groundbreaking architecture.'
+      },
+      { 
+        name: 'Singapore', 
+        country: 'Singapore', 
+        lat: 1.3521, 
+        lon: 103.8198, 
+        offset: 8, 
+        flagColor: '#FF0000',
+        funFact: '🌴 A gleaming city-state where ultra-modern skyscrapers blend with lush gardens and diverse cultures.'
+      },
+      { 
+        name: 'Tokyo', 
+        country: 'Japan', 
+        lat: 35.6762, 
+        lon: 139.6503, 
+        offset: 9, 
+        flagColor: '#BC002D',
+        funFact: '🗾 The world\'s largest metropolitan area, where ancient temples stand beside neon-lit streets and cutting-edge technology.'
+      }
     ];
     
     this.createGlobalLine();
     this.createAirplane();
+    this.createPopup();
     this.updateClocks();
     this.animateAirplane();
     setInterval(() => this.updateClocks(), 1000);
@@ -117,6 +182,12 @@ class GlobalCities {
       `;
       coords.textContent = `${city.lat.toFixed(2)}°, ${city.lon.toFixed(2)}°`;
       
+      // Click handler for fun fact pop-up
+      cityNode.addEventListener('click', (e) => {
+        e.stopPropagation();
+        this.showFunFact(city, cityNode);
+      });
+      
       // Hover effects
       cityNode.addEventListener('mouseenter', () => {
         dot.style.transform = 'scale(1.8)';
@@ -150,6 +221,81 @@ class GlobalCities {
     if (header) {
       header.parentElement.insertBefore(container, header.nextSibling);
     }
+  }
+  
+  createPopup() {
+    const popup = document.createElement('div');
+    popup.id = 'fun-fact-popup';
+    popup.style.cssText = `
+      position: fixed;
+      display: none;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(30px);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-radius: 24px;
+      padding: 2rem;
+      max-width: 320px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+      z-index: 1000;
+      animation: popupSlideIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    `;
+    
+    // Add animation to document
+    if (!document.querySelector('style[data-popup-animation]')) {
+      const style = document.createElement('style');
+      style.setAttribute('data-popup-animation', 'true');
+      style.textContent = `
+        @keyframes popupSlideIn {
+          from {
+            opacity: 0;
+            transform: translateY(-20px) scale(0.95);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+          }
+        }
+      `;
+      document.head.appendChild(style);
+    }
+    
+    document.body.appendChild(popup);
+    this.popup = popup;
+  }
+  
+  showFunFact(city, cityNode) {
+    const popup = this.popup;
+    const rect = cityNode.getBoundingClientRect();
+    
+    // Create popup content
+    popup.innerHTML = `
+      <div style="margin-bottom: 1rem;">
+        <h4 style="margin: 0 0 0.5rem 0; font-size: 1.2rem; font-weight: 700; color: #1d1d1f; letter-spacing: -0.3px;">
+          ${city.name}
+        </h4>
+        <p style="margin: 0; font-size: 0.85rem; color: #86868b; font-weight: 500;">
+          ${city.country}
+        </p>
+      </div>
+      <p style="margin: 0; font-size: 0.95rem; color: #555; line-height: 1.6; font-weight: 500;">
+        ${city.funFact}
+      </p>
+    `;
+    
+    // Position popup near the city node
+    popup.style.display = 'block';
+    popup.style.left = (rect.left - 160 + rect.width / 2) + 'px';
+    popup.style.top = (rect.top - 180) + 'px';
+    
+    // Close popup when clicking outside
+    const closePopup = (e) => {
+      if (!popup.contains(e.target) && !cityNode.contains(e.target)) {
+        popup.style.display = 'none';
+        document.removeEventListener('click', closePopup);
+      }
+    };
+    
+    document.addEventListener('click', closePopup);
   }
   
   createAirplane() {
