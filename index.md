@@ -4,9 +4,20 @@ custom_js:
   - liquid-background
   - global-cities
   - premium-interactions
+  - dark-mode
+  - train-and-penguins
+  - running-horse
 ---
 
-## Experience
+## Cities I've Visited
+
+*A journey across continents—these are the cities that have shaped my perspective and experiences in hospitality and tourism.*
+
+From the vibrant energy of Los Angeles to the historic charm of London, the artistic soul of Paris, the futuristic vision of Dubai, the multicultural harmony of Singapore, and the ancient traditions of Tokyo—each city has left an indelible mark on my professional journey.
+
+---
+
+## My Experience
 
 <div class="timeline">
   <div class="timeline-item">

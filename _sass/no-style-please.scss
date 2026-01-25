@@ -9,8 +9,8 @@
 }
 
 html, body { 
-  background: linear-gradient(135deg, $outer-bg-color 0%, #fafafa 100%);
-  color: $fg-color;
+  background: linear-gradient(135deg, $outer-bg-color-light 0%, #fafafa 100%);
+  color: $fg-color-light;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-size: 16px;
   line-height: 1.6;
@@ -19,6 +19,13 @@ html, body {
   overflow-x: hidden;
   letter-spacing: -0.3px;
   position: relative;
+  transition: background 0.6s ease, color 0.6s ease;
+}
+
+html[data-theme='dark'],
+html[data-theme='dark'] body {
+  background: linear-gradient(135deg, $outer-bg-color-dark 0%, #0f0f0f 100%);
+  color: $fg-color-dark;
 }
 
 main {
@@ -54,10 +61,19 @@ header {
     font-size: 5.5rem;
     font-weight: 900;
     margin: 0 0 1.5rem 0;
-    color: $fg-color;
+    color: $fg-color-light;
     letter-spacing: -2.5px;
     line-height: 1.05;
-    background: linear-gradient(135deg, $fg-color 0%, #333 100%);
+    background: linear-gradient(135deg, $fg-color-light 0%, #333 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    transition: all 0.6s ease;
+  }
+  
+  html[data-theme='dark'] & {
+    color: $fg-color-dark;
+    background: linear-gradient(135deg, $fg-color-dark 0%, #aaa 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -76,6 +92,11 @@ header {
     font-weight: 400;
     line-height: 1.8;
     letter-spacing: -0.2px;
+    transition: color 0.6s ease;
+  }
+  
+  html[data-theme='dark'] & p {
+    color: #a0a0a0;
   }
 }
 
