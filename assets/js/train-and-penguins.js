@@ -1,10 +1,9 @@
-// ============ TRAIN & CUTE PENGUINS ============
+// ============ HIGH-SPEED TRAIN ============
 
-class TrainAndPenguins {
+class Train {
   constructor() {
     this.createTrain();
     this.animateTrain();
-    this.createPenguins();
   }
   
   createTrain() {
@@ -76,71 +75,9 @@ class TrainAndPenguins {
     
     animate();
   }
-  
-  createPenguins() {
-    const penguinCount = 8;
-    const penguins = [];
-    
-    for (let i = 0; i < penguinCount; i++) {
-      const penguin = document.createElement('div');
-      penguin.className = 'penguin-bubble';
-      penguin.style.cssText = `
-        position: fixed;
-        width: 40px;
-        height: 40px;
-        pointer-events: none;
-        z-index: 1;
-        font-size: 28px;
-        line-height: 40px;
-        text-align: center;
-        opacity: 0.6;
-        filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.1));
-        animation: floatPenguin ${8 + i * 0.5}s ease-in-out infinite;
-      `;
-      
-      penguin.textContent = '🐧';
-      
-      // Random starting position
-      const randomX = Math.random() * window.innerWidth;
-      const randomY = Math.random() * window.innerHeight;
-      
-      penguin.style.left = randomX + 'px';
-      penguin.style.top = randomY + 'px';
-      
-      document.body.appendChild(penguin);
-      penguins.push({
-        element: penguin,
-        x: randomX,
-        y: randomY,
-        vx: (Math.random() - 0.5) * 0.2,
-        vy: (Math.random() - 0.5) * 0.2
-      });
-    }
-    
-    // Add floating animation
-    if (!document.querySelector('style[data-penguin-animation]')) {
-      const style = document.createElement('style');
-      style.setAttribute('data-penguin-animation', 'true');
-      style.textContent = `
-        @keyframes floatPenguin {
-          0%, 100% {
-            transform: translateY(0px) scale(1);
-            opacity: 0.4;
-          }
-          50% {
-            transform: translateY(-30px) scale(1.05);
-            opacity: 0.7;
-          }
-        }
-      `;
-      document.head.appendChild(style);
-    }
-    
-    this.penguins = penguins;
-  }
 }
 
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', () => {
-  new TrainAndPenguins();
+  new Train();
 });

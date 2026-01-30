@@ -1,4 +1,4 @@
-// ============ RUNNING HORSE ON EVENT TIMELINE ============
+// ============ SLOW RUNNING HORSE ON EVENT TIMELINE ============
 
 class RunningHorse {
   constructor() {
@@ -28,7 +28,7 @@ class RunningHorse {
   
   animateHorse() {
     let startTime = Date.now();
-    const cycleDuration = 8000; // Full cycle through all timeline items
+    const cycleDuration = 20000; // Much slower cycle (20 seconds instead of 8)
     
     const animate = () => {
       const now = Date.now();
@@ -64,8 +64,8 @@ class RunningHorse {
       const easeProgress = this.easeInOutCubic(totalProgress);
       const horseY = startY + (endY - startY) * easeProgress;
       
-      // Add a subtle galloping animation
-      const gallop = Math.sin(elapsed / 100) * 3;
+      // Very subtle galloping animation (much slower)
+      const gallop = Math.sin(elapsed / 300) * 2;
       
       this.horse.style.left = horseX + 'px';
       this.horse.style.top = (horseY - 20 + gallop) + 'px';
