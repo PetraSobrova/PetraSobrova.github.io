@@ -7,6 +7,7 @@ custom_js:
   - dark-mode
   - train-and-penguins
   - running-horse
+  - cinematic-scroll
 ---
 
 ## Cities I've Visited
