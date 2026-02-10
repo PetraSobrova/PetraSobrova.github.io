@@ -28,7 +28,12 @@ html[data-theme='dark'] body {
 
 main {
   position: relative;
-  z-index: 2;
+  z-index: 10;
+}
+
+#3d-scene-enhanced {
+  z-index: 0 !important;
+  pointer-events: none !important;
 }
 
 .w {
@@ -36,7 +41,7 @@ main {
   margin: 0 auto;
   padding: 6rem 4rem;
   position: relative;
-  z-index: 2;
+  z-index: 10;
   
   @media (max-width: 1024px) {
     padding: 5rem 3rem;
