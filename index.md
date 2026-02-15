@@ -1,7 +1,7 @@
 ---
 layout: home
 custom_js:
-  - 3d-enhanced
+  - globe-map
   - liquid-background
   - global-cities
   - premium-interactions
