@@ -1,4 +1,4 @@
-// ============ ADVANCED 3D GLOBE WITH WORLD MAP & CITY CONNECTIONS ============
+// ============ ADVANCED 3D GLOBE WITH BLACK SPHERE & RED SURFACE LINES ============
 
 class GlobeMap {
   constructor() {
@@ -16,13 +16,13 @@ class GlobeMap {
     
     this.cities = [
       { name: 'Los Angeles', lat: 34.0522, lon: -118.2437, color: 0xff6b6b },
-      { name: 'Mexico City', lat: 19.4326, lon: -99.1332, color: 0x4ecdc4 },
-      { name: 'New York', lat: 40.7128, lon: -74.0060, color: 0x45b7d1 },
-      { name: 'London', lat: 51.5074, lon: -0.1278, color: 0x96ceb4 },
-      { name: 'Paris', lat: 48.8566, lon: 2.3522, color: 0xffeaa7 },
-      { name: 'Dubai', lat: 25.2048, lon: 55.2708, color: 0xdfe6e9 },
-      { name: 'Singapore', lat: 1.3521, lon: 103.8198, color: 0x74b9ff },
-      { name: 'Tokyo', lat: 35.6762, lon: 139.6503, color: 0xa29bfe }
+      { name: 'Mexico City', lat: 19.4326, lon: -99.1332, color: 0xff6b6b },
+      { name: 'New York', lat: 40.7128, lon: -74.0060, color: 0xff6b6b },
+      { name: 'London', lat: 51.5074, lon: -0.1278, color: 0xff6b6b },
+      { name: 'Paris', lat: 48.8566, lon: 2.3522, color: 0xff6b6b },
+      { name: 'Dubai', lat: 25.2048, lon: 55.2708, color: 0xff6b6b },
+      { name: 'Singapore', lat: 1.3521, lon: 103.8198, color: 0xff6b6b },
+      { name: 'Tokyo', lat: 35.6762, lon: 139.6503, color: 0xff6b6b }
     ];
     
     this.init();
@@ -31,9 +31,9 @@ class GlobeMap {
   init() {
     this.createContainer();
     this.setupScene();
-    this.createGlobeWithMap();
+    this.createBlackGlobe();
     this.createCityDots();
-    this.createArcConnections();
+    this.createSurfaceArcLines();
     this.attachEventListeners();
     this.animate();
   }
@@ -81,33 +81,29 @@ class GlobeMap {
     this.renderer.shadowMap.enabled = true;
     this.container.appendChild(this.renderer.domElement);
     
-    // Lighting
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
+    // Lighting - minimal to emphasize black globe
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.3);
     this.scene.add(ambientLight);
     
-    const directionalLight = new THREE.DirectionalLight(0xffffff, 0.7);
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
     directionalLight.position.set(5, 3, 5);
     directionalLight.castShadow = true;
     this.scene.add(directionalLight);
     
-    // Accent lighting
-    const pointLight = new THREE.PointLight(0x0a84ff, 0.4);
-    pointLight.position.set(-5, 0, 5);
-    this.scene.add(pointLight);
+    // Subtle red accent light
+    const redLight = new THREE.PointLight(0xff6b6b, 0.3);
+    redLight.position.set(-5, 0, 5);
+    this.scene.add(redLight);
   }
   
-  createGlobeWithMap() {
-    // Create canvas texture for world map
-    const canvas = this.createWorldMapTexture();
-    const texture = new THREE.CanvasTexture(canvas);
-    
-    // Create globe geometry
+  createBlackGlobe() {
+    // Main black globe
     const geometry = new THREE.IcosahedronGeometry(1.2, 64);
     const material = new THREE.MeshPhongMaterial({
-      map: texture,
-      shininess: 50,
-      emissiveMap: texture,
-      emissiveIntensity: 0.2
+      color: 0x000000,
+      emissive: 0x000000,
+      shininess: 30,
+      wireframe: false
     });
     
     this.globe = new THREE.Mesh(geometry, material);
@@ -115,94 +111,27 @@ class GlobeMap {
     this.globe.receiveShadow = true;
     this.scene.add(this.globe);
     
-    // Wireframe overlay
+    // Subtle wireframe overlay
     const wireframeGeometry = new THREE.IcosahedronGeometry(1.21, 64);
     const wireframeMaterial = new THREE.MeshBasicMaterial({
-      color: this.isDarkMode ? 0x333333 : 0xe0e0e0,
+      color: 0x333333,
       wireframe: true,
       transparent: true,
-      opacity: 0.08
+      opacity: 0.15
     });
     const wireframe = new THREE.Mesh(wireframeGeometry, wireframeMaterial);
     this.globe.add(wireframe);
     
-    // Glow effect
+    // Subtle red glow effect
     const glowGeometry = new THREE.IcosahedronGeometry(1.25, 64);
     const glowMaterial = new THREE.MeshBasicMaterial({
-      color: this.isDarkMode ? 0x0a84ff : 0x0071e3,
+      color: 0xff6b6b,
       transparent: true,
-      opacity: 0.08,
+      opacity: 0.05,
       side: THREE.BackSide
     });
     const glow = new THREE.Mesh(glowGeometry, glowMaterial);
     this.globe.add(glow);
-  }
-  
-  createWorldMapTexture() {
-    const canvas = document.createElement('canvas');
-    canvas.width = 2048;
-    canvas.height = 1024;
-    const ctx = canvas.getContext('2d');
-    
-    // Background
-    ctx.fillStyle = this.isDarkMode ? '#0a0a0a' : '#ffffff';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-    
-    // Land color
-    ctx.fillStyle = this.isDarkMode ? '#1a1a1a' : '#f0f0f0';
-    
-    // Simple world map pattern (continents)
-    this.drawContinents(ctx, canvas.width, canvas.height);
-    
-    // Ocean/water lines
-    ctx.strokeStyle = this.isDarkMode ? '#333333' : '#e0e0e0';
-    ctx.lineWidth = 1;
-    
-    // Latitude/Longitude grid
-    for (let lat = -80; lat <= 80; lat += 20) {
-      const y = (90 - lat) / 180 * canvas.height;
-      ctx.beginPath();
-      ctx.moveTo(0, y);
-      ctx.lineTo(canvas.width, y);
-      ctx.stroke();
-    }
-    
-    for (let lon = -180; lon <= 180; lon += 20) {
-      const x = (lon + 180) / 360 * canvas.width;
-      ctx.beginPath();
-      ctx.moveTo(x, 0);
-      ctx.lineTo(x, canvas.height);
-      ctx.stroke();
-    }
-    
-    return canvas;
-  }
-  
-  drawContinents(ctx, width, height) {
-    // Simplified continent shapes
-    const continents = [
-      // North America
-      { x: 0.2, y: 0.35, w: 0.15, h: 0.25 },
-      // South America
-      { x: 0.25, y: 0.6, w: 0.08, h: 0.2 },
-      // Europe
-      { x: 0.45, y: 0.3, w: 0.08, h: 0.15 },
-      // Africa
-      { x: 0.45, y: 0.5, w: 0.1, h: 0.25 },
-      // Asia
-      { x: 0.55, y: 0.25, w: 0.25, h: 0.35 },
-      // Australia
-      { x: 0.75, y: 0.65, w: 0.08, h: 0.1 }
-    ];
-    
-    continents.forEach(cont => {
-      ctx.fillRect(
-        cont.x * width,
-        cont.y * height,
-        cont.w * width,
-        cont.h * height
-      );
-    });
   }
   
   createCityDots() {
@@ -214,28 +143,28 @@ class GlobeMap {
       const y = 1.2 * Math.cos(phi);
       const z = 1.2 * Math.sin(phi) * Math.sin(theta);
       
-      // Main dot
+      // Main red dot
       const dotGeometry = new THREE.SphereGeometry(0.05, 32, 32);
       const dotMaterial = new THREE.MeshPhongMaterial({
-        color: city.color,
-        emissive: city.color,
+        color: 0xff6b6b,
+        emissive: 0xff6b6b,
         emissiveIntensity: 0.8,
         shininess: 100
       });
       const dot = new THREE.Mesh(dotGeometry, dotMaterial);
       dot.position.set(x, y, z);
       dot.castShadow = true;
-      dot.userData = { cityName: city.name, color: city.color, index: index };
+      dot.userData = { cityName: city.name, color: 0xff6b6b, index: index };
       
       this.scene.add(dot);
       this.cityDots.push(dot);
       
-      // Glow ring
+      // Red pulsing ring
       const ringGeometry = new THREE.TorusGeometry(0.08, 0.01, 16, 32);
       const ringMaterial = new THREE.MeshBasicMaterial({
-        color: city.color,
+        color: 0xff6b6b,
         transparent: true,
-        opacity: 0.6
+        opacity: 0.7
       });
       const ring = new THREE.Mesh(ringGeometry, ringMaterial);
       ring.position.copy(dot.position);
@@ -246,17 +175,17 @@ class GlobeMap {
     });
   }
   
-  createArcConnections() {
-    // Connect cities in order with animated arcs
+  createSurfaceArcLines() {
+    // Connect cities in order with surface-level red arcs
     for (let i = 0; i < this.cities.length - 1; i++) {
-      this.createArcBetweenCities(this.cities[i], this.cities[i + 1], i);
+      this.createSurfaceArcBetweenCities(this.cities[i], this.cities[i + 1], i);
     }
     
     // Connect last city to first (loop)
-    this.createArcBetweenCities(this.cities[this.cities.length - 1], this.cities[0], this.cities.length - 1);
+    this.createSurfaceArcBetweenCities(this.cities[this.cities.length - 1], this.cities[0], this.cities.length - 1);
   }
   
-  createArcBetweenCities(city1, city2, index) {
+  createSurfaceArcBetweenCities(city1, city2, index) {
     const phi1 = (90 - city1.lat) * Math.PI / 180;
     const theta1 = (city1.lon + 180) * Math.PI / 180;
     const p1 = new THREE.Vector3(
@@ -273,16 +202,19 @@ class GlobeMap {
       1.2 * Math.sin(phi2) * Math.sin(theta2)
     );
     
-    // Create arc curve
-    const curve = new THREE.CatmullRomCurve3([p1, p1.clone().multiplyScalar(1.5), p2.clone().multiplyScalar(1.5), p2]);
-    const points = curve.getPoints(100);
+    // Create surface-level arc (stays on globe surface)
+    const curve = new THREE.CatmullRomCurve3([p1, p1.clone().normalize().multiplyScalar(1.22), p2.clone().normalize().multiplyScalar(1.22), p2]);
+    const points = curve.getPoints(80);
     
-    const geometry = new THREE.BufferGeometry().setFromPoints(points);
+    // Normalize points to stay on surface
+    const normalizedPoints = points.map(p => p.normalize().multiplyScalar(1.21));
+    
+    const geometry = new THREE.BufferGeometry().setFromPoints(normalizedPoints);
     const material = new THREE.LineBasicMaterial({
-      color: 0x0a84ff,
-      linewidth: 2,
+      color: 0xff6b6b,
+      linewidth: 3,
       transparent: true,
-      opacity: 0.6
+      opacity: 0.8
     });
     
     const line = new THREE.Line(geometry, material);
@@ -312,7 +244,7 @@ class GlobeMap {
       dot.scale.set(1, 1, 1);
       dot.material.emissiveIntensity = 0.8;
       if (dot.userData.ring) {
-        dot.userData.ring.material.opacity = 0.6;
+        dot.userData.ring.material.opacity = 0.7;
       }
     });
     
@@ -336,36 +268,36 @@ class GlobeMap {
   animate() {
     this.animationFrameId = requestAnimationFrame(() => this.animate());
     
-    // Smooth globe rotation
+    // Slow clockwise rotation (negative y-axis for clockwise)
     if (this.globe) {
-      this.globe.rotation.x += 0.00005;
-      this.globe.rotation.y += 0.0002;
+      this.globe.rotation.x += 0.00002;
+      this.globe.rotation.y -= 0.0001; // Clockwise rotation
     }
     
     // Animate city dots
     this.cityDots.forEach((dot, index) => {
-      dot.rotation.x += 0.01;
-      dot.rotation.y += 0.015;
-      dot.position.y += Math.sin(Date.now() * 0.0003 + index * 0.5) * 0.0005;
+      dot.rotation.x += 0.008;
+      dot.rotation.y += 0.012;
+      dot.position.y += Math.sin(Date.now() * 0.0003 + index * 0.5) * 0.0003;
       
       // Pulse glow ring
       if (dot.userData.ring) {
         dot.userData.ring.rotation.z += 0.02;
         dot.userData.ring.scale.set(
-          1 + Math.sin(Date.now() * 0.003 + index) * 0.2,
-          1 + Math.sin(Date.now() * 0.003 + index) * 0.2,
+          1 + Math.sin(Date.now() * 0.003 + index) * 0.15,
+          1 + Math.sin(Date.now() * 0.003 + index) * 0.15,
           1
         );
       }
     });
     
-    // Animate arc lines
+    // Animate arc lines with pulsing effect
     this.arcLines.forEach(arcData => {
       arcData.progress += 0.01;
       if (arcData.progress > 1) {
         arcData.progress = 0;
       }
-      arcData.line.material.opacity = 0.3 + Math.sin(arcData.progress * Math.PI) * 0.3;
+      arcData.line.material.opacity = 0.4 + Math.sin(arcData.progress * Math.PI) * 0.4;
     });
     
     this.renderer.render(this.scene, this.camera);
