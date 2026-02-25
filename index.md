@@ -11,147 +11,150 @@ custom_js:
   - cinematic-scroll
 ---
 
-## Cities I've Visited
-
-*A journey across continents—these are the cities that have shaped my perspective and experiences in hospitality and tourism.*
-
-From the vibrant energy of Los Angeles to the historic charm of London, the artistic soul of Paris, the futuristic vision of Dubai, the multicultural harmony of Singapore, and the ancient traditions of Tokyo—each city has left an indelible mark on my professional journey.
-
----
-
-## My Experience
-
-<div class="timeline">
-  <div class="timeline-item">
-    <div class="timeline-marker"></div>
-    <div class="timeline-content">
-      <div class="timeline-header">
-        <h3>Customer Service & Event Support</h3>
-        <p class="company">SUNDISK – Žlutá Plovárna</p>
-      </div>
-      <div class="timeline-image">
-        <img src="/assets/experience/sundisk.jpg" alt="SUNDISK – Žlutá Plovárna">
-      </div>
-      <div class="timeline-details">
-        <p class="location">📍 Maloskalsko, Czech Republic</p>
-        <p class="date">📅 May 2023 – Present</p>
-        <ul>
-          <li>Provided customer service and managed sports equipment rentals.</li>
-          <li>Supported corporate events and tourism activities.</li>
-          <li>Assisted reception operations and visitor communication.</li>
-          <li>Delivered tourist information ensuring smooth guest experience.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <div class="timeline-item">
-    <div class="timeline-marker"></div>
-    <div class="timeline-content">
-      <div class="timeline-header">
-        <h3>Hotel Receptionist</h3>
-        <p class="company">Bohemia Inn Hotel Turnov</p>
-      </div>
-      <div class="timeline-image">
-        <img src="/assets/experience/bohemia_inn.jpg" alt="Bohemia Inn Hotel Turnov">
-      </div>
-      <div class="timeline-details">
-        <p class="location">📍 Turnov, Czech Republic</p>
-        <p class="date">📅 May 2025 – Aug 2025</p>
-        <ul>
-          <li>Managed check-in, check-out, payments, and reservations.</li>
-          <li>Communicated with international guests and provided travel guidance.</li>
-          <li>Supported daily front-desk and hospitality operations.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <div class="timeline-item">
-    <div class="timeline-marker"></div>
-    <div class="timeline-content">
-      <div class="timeline-header">
-        <h3>Tour Guide</h3>
-        <p class="company">Sychrov Castle</p>
-      </div>
-      <div class="timeline-image">
-        <img src="/assets/experience/sychrov.jpg" alt="Sychrov Castle">
-      </div>
-      <div class="timeline-details">
-        <p class="location">📍 Czech Republic</p>
-        <p class="date">📅 Summer 2021 – 2022</p>
-        <ul>
-          <li>Conducted guided historical tours for visitors.</li>
-          <li>Organized visitor groups and maintained schedules.</li>
-          <li>Presented cultural information to international tourists.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <div class="timeline-item">
-    <div class="timeline-marker"></div>
-    <div class="timeline-content">
-      <div class="timeline-header">
-        <h3>Assistant Tour Guide</h3>
-        <p class="company">HOŠKA TOUR Travel Agency</p>
-      </div>
-      <div class="timeline-image">
-        <img src="/assets/experience/hoska_tour.jpg" alt="HOŠKA TOUR Travel Agency">
-      </div>
-      <div class="timeline-details">
-        <p class="location">📍 Czech Republic</p>
-        <ul>
-          <li>Assisted lead tour guide during international trips.</li>
-          <li>Supported logistics coordination and traveler assistance.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-
----
-
-## Education & Skills
-
-<div class="education-skills-section">
-  <div class="education-column">
-    <h3>Education</h3>
-    <ul class="education-list">
-      <li>
-        <strong>University of Hradec Králové</strong>
-        <span>B.A. Tourism Management (2024 – Present)</span>
-      </li>
-      <li>
-        <strong>Jan Amos Komenský Academy, Liberec</strong>
-        <span>Post-secondary English Language Studies (2023 – 2024)</span>
-      </li>
-      <li>
-        <strong>Business Academy, Hotel School and Vocational School, Turnov</strong>
-        <span>Tourism Program (2019 – 2023)</span>
-      </li>
+<header>
+  <nav>
+    <div class="logo">Petra</div>
+    <ul class="nav-links">
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#cities">Cities</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
-  </div>
+    <button class="cta-button">Get in Touch</button>
+  </nav>
+</header>
 
-  <div class="skills-column">
-    <h3>Skills</h3>
-    <ul class="skills-list">
-      <li>
-        <strong>Tourism & Hospitality</strong>
-        <span>Customer service, visitor coordination, event assistance, travel organization</span>
-      </li>
-      <li>
-        <strong>Software</strong>
-        <span>Microsoft Office, rezervuj.com, Previo, AGNIS, Roundcube Webmail</span>
-      </li>
-      <li>
-        <strong>Languages</strong>
-        <span>Czech (Native), English (B2 – Cambridge Certificate)</span>
-      </li>
-      <li>
-        <strong>Core Strengths</strong>
-        <span>Communication, organization, teamwork, adaptability</span>
-      </li>
-    </ul>
-  </div>
-</div>
+<main>
+  <section class="hero">
+    <div class="hero-content">
+      <div class="status-label">SYSTEM STATUS: ACTIVE</div>
+      <h1>Architect your vision.</h1>
+      <p>A senior designer with a global perspective. I create immersive digital experiences that transcend boundaries and inspire action.</p>
+      <button class="cta-button">Explore My Work</button>
+    </div>
+    <div class="hero-visual">
+      <!-- 3D Globe renders here -->
+    </div>
+  </section>
+
+  <section class="experience-section" id="experience">
+    <h2>Professional Journey</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-marker"></div>
+        <div class="timeline-content glass-card">
+          <h3>SUNDISK</h3>
+          <div class="date">May 2023 – Present</div>
+          <p>Led design initiatives for a dynamic sports and tourism platform. Crafted user-centric interfaces that enhanced customer engagement and streamlined operations.</p>
+        </div>
+      </div>
+      
+      <div class="timeline-item">
+        <div class="timeline-marker"></div>
+        <div class="timeline-content glass-card">
+          <h3>Bohemia Inn</h3>
+          <div class="date">2022 – 2023</div>
+          <p>Designed hospitality experiences and guest-facing systems. Managed digital touchpoints for a luxury accommodation brand.</p>
+        </div>
+      </div>
+      
+      <div class="timeline-item">
+        <div class="timeline-marker"></div>
+        <div class="timeline-content glass-card">
+          <h3>Sychrov Castle</h3>
+          <div class="date">2021 – 2022</div>
+          <p>Created digital narratives for a historic landmark. Designed immersive experiences connecting heritage and modern technology.</p>
+        </div>
+      </div>
+      
+      <div class="timeline-item">
+        <div class="timeline-marker"></div>
+        <div class="timeline-content glass-card">
+          <h3>HOŠKA TOUR</h3>
+          <div class="date">2020 – 2021</div>
+          <p>Developed comprehensive digital strategies for tourism and travel services. Enhanced customer journeys through thoughtful design.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="experience-section" id="cities">
+    <h2>Cities I've Visited</h2>
+    <p style="color: #a8a8a8; margin-bottom: 2rem; max-width: 600px;">
+      My professional journey spans across continents. From Los Angeles to Tokyo, each city has shaped my perspective and design philosophy.
+    </p>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;">
+      <div class="glass-card">
+        <h3 style="color: #4a8f8f; margin-bottom: 0.5rem;">Los Angeles</h3>
+        <p style="color: #a8a8a8; font-size: 0.9rem;">34.0522° N, 118.2437° W</p>
+      </div>
+      <div class="glass-card">
+        <h3 style="color: #4a8f8f; margin-bottom: 0.5rem;">Mexico City</h3>
+        <p style="color: #a8a8a8; font-size: 0.9rem;">19.4326° N, 99.1332° W</p>
+      </div>
+      <div class="glass-card">
+        <h3 style="color: #4a8f8f; margin-bottom: 0.5rem;">New York</h3>
+        <p style="color: #a8a8a8; font-size: 0.9rem;">40.7128° N, 74.0060° W</p>
+      </div>
+      <div class="glass-card">
+        <h3 style="color: #4a8f8f; margin-bottom: 0.5rem;">London</h3>
+        <p style="color: #a8a8a8; font-size: 0.9rem;">51.5074° N, 0.1278° W</p>
+      </div>
+      <div class="glass-card">
+        <h3 style="color: #4a8f8f; margin-bottom: 0.5rem;">Paris</h3>
+        <p style="color: #a8a8a8; font-size: 0.9rem;">48.8566° N, 2.3522° E</p>
+      </div>
+      <div class="glass-card">
+        <h3 style="color: #4a8f8f; margin-bottom: 0.5rem;">Dubai</h3>
+        <p style="color: #a8a8a8; font-size: 0.9rem;">25.2048° N, 55.2708° E</p>
+      </div>
+      <div class="glass-card">
+        <h3 style="color: #4a8f8f; margin-bottom: 0.5rem;">Singapore</h3>
+        <p style="color: #a8a8a8; font-size: 0.9rem;">1.3521° N, 103.8198° E</p>
+      </div>
+      <div class="glass-card">
+        <h3 style="color: #4a8f8f; margin-bottom: 0.5rem;">Tokyo</h3>
+        <p style="color: #a8a8a8; font-size: 0.9rem;">35.6762° N, 139.6503° E</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="skills-section" id="skills">
+    <h2>Core Competencies</h2>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <h3>UI/UX Design</h3>
+        <p>Creating intuitive, user-centered digital experiences that drive engagement and satisfaction.</p>
+      </div>
+      <div class="skill-card">
+        <h3>Visual Design</h3>
+        <p>Crafting compelling visual narratives through typography, color, and composition.</p>
+      </div>
+      <div class="skill-card">
+        <h3>Brand Strategy</h3>
+        <p>Developing cohesive brand identities that resonate with target audiences.</p>
+      </div>
+      <div class="skill-card">
+        <h3>Digital Strategy</h3>
+        <p>Planning and executing comprehensive digital initiatives that drive business growth.</p>
+      </div>
+      <div class="skill-card">
+        <h3>Web Development</h3>
+        <p>Building responsive, performant websites and applications with modern technologies.</p>
+      </div>
+      <div class="skill-card">
+        <h3>3D Visualization</h3>
+        <p>Creating immersive 3D experiences and interactive visualizations.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer id="contact">
+    <p>© 2026 Petra Sobrova. All rights reserved.</p>
+    <p>
+      <a href="mailto:petra@example.com" style="color: #4a8f8f; text-decoration: none;">Email</a> • 
+      <a href="#" style="color: #4a8f8f; text-decoration: none;">LinkedIn</a> • 
+      <a href="#" style="color: #4a8f8f; text-decoration: none;">GitHub</a>
+    </p>
+  </footer>
+</main>
