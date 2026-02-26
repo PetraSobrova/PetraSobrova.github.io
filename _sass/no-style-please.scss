@@ -1,6 +1,6 @@
 @import 'colors';
 
-// Modern, Senior Designer Aesthetic
+// Modern, Senior Designer Aesthetic with Wow Factor
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap');
 
 html, body { 
@@ -11,6 +11,7 @@ html, body {
   line-height: 1.6;
   margin: 0;
   min-height: 100%;
+  overflow-x: hidden;
 }
 
 .w {
@@ -22,6 +23,7 @@ html, body {
 header {
   margin-bottom: 4rem;
   text-align: left;
+  animation: fadeInDown 0.8s ease-out;
   
   h1 {
     font-family: 'Playfair Display', serif;
@@ -31,6 +33,10 @@ header {
     color: #ffffff;
     letter-spacing: -0.02em;
     line-height: 1.1;
+    background: linear-gradient(135deg, #ffffff 0%, #e0e0e0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
   
   p {
@@ -49,6 +55,18 @@ h2 {
   color: #ffffff;
   border-bottom: 1px solid #333;
   padding-bottom: 0.5rem;
+  position: relative;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: linear-gradient(90deg, #00ff88, transparent);
+    animation: expandLine 1s ease-out forwards;
+  }
 }
 
 h3 {
@@ -57,6 +75,59 @@ h3 {
   margin: 0;
   color: #ffffff;
 }
+
+// ============ ANIMATIONS ============
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes expandLine {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.3), inset 0 0 20px rgba(0, 255, 136, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(0, 255, 136, 0.6), inset 0 0 30px rgba(0, 255, 136, 0.2);
+  }
+}
+
+@keyframes imageReveal {
+  from {
+    clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+  }
+  to {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+
+// ============ EXPERIENCE GRID ============
 
 .experience-grid {
   display: grid;
@@ -70,37 +141,140 @@ h3 {
   grid-template-columns: 1fr 1.5fr;
   gap: 2rem;
   align-items: start;
+  animation: slideInLeft 0.8s ease-out;
+  animation-fill-mode: both;
   
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
   }
+  
+  // Stagger animation for each item
+  &:nth-child(1) { animation-delay: 0.1s; }
+  &:nth-child(2) { animation-delay: 0.2s; }
+  &:nth-child(3) { animation-delay: 0.3s; }
+  &:nth-child(4) { animation-delay: 0.4s; }
 }
+
+// ============ IMAGE HOVER EFFECTS ============
 
 .experience-img {
   width: 100%;
   height: 300px;
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: 12px;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
   filter: grayscale(100%);
-  transition: filter 0.5s ease, transform 0.5s ease;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  border: 2px solid transparent;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 30% 30%, rgba(0, 255, 136, 0.2), transparent 50%);
+    opacity: 0;
+    border-radius: 12px;
+    pointer-events: none;
+    transition: opacity 0.6s ease;
+  }
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0, 255, 136, 0.1) 0%, transparent 50%, rgba(255, 0, 136, 0.1) 100%);
+    opacity: 0;
+    border-radius: 12px;
+    pointer-events: none;
+    transition: opacity 0.6s ease;
+  }
   
   &:hover {
     filter: grayscale(0%);
-    transform: scale(1.02);
+    transform: scale(1.05) translateY(-10px);
+    box-shadow: 
+      0 20px 60px rgba(0, 255, 136, 0.3),
+      0 0 40px rgba(0, 255, 136, 0.2),
+      inset 0 0 20px rgba(0, 255, 136, 0.1);
+    border-color: rgba(0, 255, 136, 0.5);
+    
+    &::before {
+      opacity: 1;
+      animation: glowPulse 2s ease-in-out infinite;
+    }
+    
+    &::after {
+      opacity: 1;
+    }
   }
 }
 
+// ============ EXPERIENCE DETAILS ============
+
 .experience-details {
+  position: relative;
+  
+  h3 {
+    position: relative;
+    display: inline-block;
+    transition: all 0.4s ease;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #00ff88, #ff0088);
+      transition: width 0.4s ease;
+    }
+  }
+  
+  &:hover h3::after {
+    width: 100%;
+  }
+  
   .company {
     font-weight: 600;
     color: #ffffff;
     margin: 0.5rem 0 0.2rem 0;
+    position: relative;
+    display: inline-block;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: #00ff88;
+      transition: width 0.4s ease;
+    }
+  }
+  
+  &:hover .company::before {
+    width: 100%;
   }
   
   .location, .date {
     font-size: 0.9rem;
     color: #888;
     margin: 0;
+    transition: color 0.3s ease;
+  }
+  
+  &:hover .location, &:hover .date {
+    color: #00ff88;
   }
   
   ul {
@@ -110,9 +284,30 @@ h3 {
     
     li {
       margin-bottom: 0.5rem;
+      position: relative;
+      transition: all 0.3s ease;
+      
+      &::before {
+        content: '▸';
+        position: absolute;
+        left: -1.2rem;
+        color: #00ff88;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+    }
+  }
+  
+  &:hover ul li {
+    color: #e0e0e0;
+    
+    &::before {
+      opacity: 1;
     }
   }
 }
+
+// ============ EDUCATION & SKILLS ============
 
 .education-list, .skills-list {
   list-style: none;
@@ -120,11 +315,32 @@ h3 {
   
   li {
     margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+    transition: all 0.3s ease;
+    
+    &::before {
+      content: '✦';
+      position: absolute;
+      left: 0;
+      color: #00ff88;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    &:hover {
+      padding-left: 2rem;
+      
+      &::before {
+        opacity: 1;
+      }
+    }
     
     strong {
       color: #ffffff;
       display: block;
       font-size: 1.1rem;
+      margin-bottom: 0.3rem;
     }
     
     span {
@@ -138,10 +354,28 @@ a {
   color: #ffffff;
   text-decoration: none;
   border-bottom: 1px solid #444;
-  transition: border-color 0.3s ease;
+  transition: all 0.3s ease;
+  position: relative;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: #00ff88;
+    transition: width 0.3s ease;
+  }
   
   &:hover {
-    border-color: #ffffff;
+    border-color: #00ff88;
+    color: #00ff88;
+    text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+    
+    &::after {
+      width: 100%;
+    }
   }
 }
 
@@ -149,9 +383,49 @@ hr {
   border: 0;
   border-top: 1px solid #333;
   margin: 4rem 0;
+  position: relative;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #00ff88, transparent);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+}
+
+hr:hover::after {
+  opacity: 1;
+}
+
+// ============ SCROLL REVEAL ============
+
+.experience-item {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 // Hide menu if not needed
 nav {
   display: none;
+}
+
+// ============ RESPONSIVE ============
+
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2.5rem;
+  }
+  
+  h2 {
+    font-size: 1.8rem;
+  }
+  
+  .experience-img {
+    height: 250px;
+  }
 }

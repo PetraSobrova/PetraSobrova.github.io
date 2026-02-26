@@ -1,5 +1,7 @@
 ---
 layout: home
+custom_js:
+  - scroll-reveal
 ---
 
 ## Experience
