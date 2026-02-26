@@ -1,124 +1,157 @@
 @import 'colors';
 
-// bg color is also needed in html in order to
-// block body's background propagation
-// see: https://stackoverflow.com/a/61265706
-html, body { background: $outer-bg-color; }
+// Modern, Senior Designer Aesthetic
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap');
 
-html { height: 100%; }
-
-body {
-  color: $fg-color;
-  font-family: monospace;
+html, body { 
+  background: #0a0a0a; 
+  color: #e0e0e0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   font-size: 16px;
-  line-height: 1.4;
+  line-height: 1.6;
   margin: 0;
   min-height: 100%;
-  overflow-wrap: break-word;
 }
-
-.post-meta { text-align: right; }
-
-.site-title { 
-  font-size: 36pt;
-  letter-spacing: 2pt;
-}
-
-.post-content {
-  font-family: sans-serif;
-  font-size: 16px;
-  line-height: 150%;
-}
-
-.post-content h2, .post-content h3, .post-content h4,
-.post-content h5, .post-content h6, .post-content a {
-  font-family: monospace;
-}
-
-h2, h3, h4, h5, h6 { margin-top: 3rem; }
-
-hr { margin: 2rem 0; }
-
-p { margin: 1rem 0; }
-
-li { margin: 0.4rem 0; }
-
-*:target { background: yellow; }
 
 .w {
-  max-width: 700px;
-  margin: 2em auto;
-  padding: 1em 2rem;
-  background-color: $bg-color;
-  box-shadow: 3pt;
-}
-
-hr {
-  text-align: center;
-  border: 0;
-
-  &:before { content: '/////' }
-  &:after { content: attr(data-content) '/////' }
-}
-
-table { width: 100%; }
-
-table, th, td {
-  border: thin solid black;
-  border-collapse: collapse;
-  padding: 0.4rem;
-}
-
-code {
-  color: white;
-  background: black;
-}
-
-div.highlighter-rouge code {
-  display: block;
-  overflow-x: auto;
-  white-space: pre-wrap;
-  padding: 1rem;
-}
-
-blockquote {
-  font-style: italic;
-  border: thin solid black;
-  padding: 1rem;
-
-  p { margin: 0; }
-}
-
-img {
-  max-width: 100%;
-  display: block;
+  max-width: 900px;
   margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+header {
+  margin-bottom: 4rem;
+  text-align: left;
+  
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    font-weight: 800;
+    margin: 0;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+  
+  p {
+    font-size: 1.2rem;
+    color: #a0a0a0;
+    max-width: 600px;
+    margin-top: 1.5rem;
+  }
+}
+
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  margin-top: 5rem;
+  margin-bottom: 2rem;
+  color: #ffffff;
+  border-bottom: 1px solid #333;
+  padding-bottom: 0.5rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+  color: #ffffff;
+}
+
+.experience-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem;
+  margin-top: 2rem;
+}
+
+.experience-item {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 2rem;
+  align-items: start;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.experience-img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+  filter: grayscale(100%);
+  transition: filter 0.5s ease, transform 0.5s ease;
+  
+  &:hover {
+    filter: grayscale(0%);
+    transform: scale(1.02);
+  }
+}
+
+.experience-details {
+  .company {
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0.5rem 0 0.2rem 0;
+  }
+  
+  .location, .date {
+    font-size: 0.9rem;
+    color: #888;
+    margin: 0;
+  }
+  
+  ul {
+    margin-top: 1rem;
+    padding-left: 1.2rem;
+    color: #b0b0b0;
+    
+    li {
+      margin-bottom: 0.5rem;
+    }
+  }
+}
+
+.education-list, .skills-list {
+  list-style: none;
+  padding: 0;
+  
+  li {
+    margin-bottom: 1.5rem;
+    
+    strong {
+      color: #ffffff;
+      display: block;
+      font-size: 1.1rem;
+    }
+    
+    span {
+      color: #888;
+      font-size: 0.9rem;
+    }
+  }
 }
 
 a {
-  color: $link-color;
-}
-
-
-// -------------- THEME SWITCHER -------------- //
-/*
- @mixin dark-appearance {
-  filter: invert(1);
-  img {
-    filter: invert(1);
-
-    &.ioda { filter: invert(0); }
-  }
-
-  html, body {
-    background: black; 
+  color: #ffffff;
+  text-decoration: none;
+  border-bottom: 1px solid #444;
+  transition: border-color 0.3s ease;
+  
+  &:hover {
+    border-color: #ffffff;
   }
 }
 
-body[a="dark"] { @include dark-appearance; }
+hr {
+  border: 0;
+  border-top: 1px solid #333;
+  margin: 4rem 0;
+}
 
-
-@media (prefers-color-scheme: dark) {
-  body[a="auto"] { @include dark-appearance; }
-}*/
-// -------------------------------------------- //
+// Hide menu if not needed
+nav {
+  display: none;
+}

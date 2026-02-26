@@ -1,26 +1,7 @@
-# For documentation on this file, see:
-# https://github.com/riggraz/no-style-please#customize-the-menu
- 
 entries:
-  - title: <b> take a look at  </b>
+  - title: Connect
     entries:
-      - title: my naive articles... >
-        url: archive.html
-      - title: alexine's lab >
-        url: lab_list.html
-
-
-  - title: <b> my links  </b>
-    entries:
-      - title: insta
-        url: https://www.instagram.com/jalexinee/
-      - title: marry me
-        url: https://www.linkedin.com/in/jalexineleport/
-      - title: hire me ♡
-        url: mailto:alexine.leport@gmail.com
-  # - title: kategori-1
-  #   post_list:
-  #     category: example2
-  #     show_more: true
-  #     show_more_text: See more posts...
-  #     show_more_url: example2-archive.html
+      - title: Email
+        url: mailto:petrasobrova10@seznam.cz
+      - title: LinkedIn
+        url: "#"
