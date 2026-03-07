@@ -10,6 +10,7 @@ $accent-green: #4a8f8f;
 $warm-accent: #d4573b;
 $light-text: #e8e8e8;
 $muted-text: #a8a8a8;
+$dark-text: #1a1a1a;
 $border-color: rgba(74, 143, 143, 0.3);
 $glass-bg: rgba(26, 58, 58, 0.4);
 
@@ -147,12 +148,30 @@ a {
     }
     
     p {
-      color: $muted-text;
+      color: $dark-text;
       line-height: 1.6;
       margin-bottom: 0.5rem;
+      font-weight: 500;
       
       &:last-child {
         margin-bottom: 0;
+      }
+    }
+    
+    ul {
+      list-style: none;
+      margin: 0.5rem 0;
+      
+      li {
+        color: $dark-text;
+        margin-bottom: 0.3rem;
+        font-weight: 500;
+        
+        &::before {
+          content: '• ';
+          color: $accent-green;
+          margin-right: 0.5rem;
+        }
       }
     }
   }
@@ -191,10 +210,11 @@ a {
       }
       
       .city-name {
-        color: $muted-text;
+        color: $dark-text;
         font-size: 0.9rem;
         transition: color 0.3s ease;
         cursor: pointer;
+        font-weight: 500;
         
         &:hover {
           color: $accent-green;
@@ -212,14 +232,16 @@ a {
   li {
     padding: 1rem 0;
     border-bottom: 1px solid $border-color;
-    color: $muted-text;
+    color: $dark-text;
+    font-weight: 500;
     
     &:last-child {
       border-bottom: none;
     }
     
     strong {
-      color: $light-text;
+      color: $accent-green;
+      font-weight: 600;
     }
   }
 }

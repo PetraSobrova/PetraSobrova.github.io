@@ -13,52 +13,17 @@ custom_js:
 
 <div class="w">
 
-<div class="status-label">SYSTEM STATUS: FLOW</div>
-
-# Petra Sobrova
+# Petra Šobrová
 
 Senior Designer & Creative Technologist
 
+**Czech Republic | (+420) 722 674 303 | petrasobrova10@seznam.cz | Born: 27 Nov 2003**
+
 ---
 
-## Cities I've Visited
+## Profile
 
-<div class="cities-line">
-  <div class="cities-container">
-    <div class="city-dot">
-      <div class="dot"></div>
-      <span class="city-name">Los Angeles</span>
-    </div>
-    <div class="city-dot">
-      <div class="dot"></div>
-      <span class="city-name">Mexico City</span>
-    </div>
-    <div class="city-dot">
-      <div class="dot"></div>
-      <span class="city-name">New York</span>
-    </div>
-    <div class="city-dot">
-      <div class="dot"></div>
-      <span class="city-name">London</span>
-    </div>
-    <div class="city-dot">
-      <div class="dot"></div>
-      <span class="city-name">Paris</span>
-    </div>
-    <div class="city-dot">
-      <div class="dot"></div>
-      <span class="city-name">Dubai</span>
-    </div>
-    <div class="city-dot">
-      <div class="dot"></div>
-      <span class="city-name">Singapore</span>
-    </div>
-    <div class="city-dot">
-      <div class="dot"></div>
-      <span class="city-name">Tokyo</span>
-    </div>
-  </div>
-</div>
+Tourism Management undergraduate with professional experience in hospitality services, tourism operations, and event support. Skilled in guest communication, travel coordination, and customer-facing environments requiring strong organizational and interpersonal abilities.
 
 ---
 
@@ -67,45 +32,52 @@ Senior Designer & Creative Technologist
 <div class="timeline-item">
   <div class="timeline-date">May 2023 – Present</div>
   <div class="timeline-content glass-card">
-    <h3>SUNDISK</h3>
-    <div class="location">📍 Maloskalsko, Czech Republic</div>
-    <p>Provided customer service and managed sports equipment rentals.</p>
-    <p>Supported corporate events and tourism activities.</p>
-    <p>Assisted reception operations and visitor communication.</p>
-    <p>Delivered tourist information ensuring smooth guest experience.</p>
+    <h3>Customer Service & Event Support</h3>
+    <div class="location">📍 SUNDISK – Žlutá Plovárna, Maloskalsko, Czech Republic</div>
+    <ul>
+      <li>Provided customer service and managed sports equipment rentals.</li>
+      <li>Supported corporate events and tourism activities.</li>
+      <li>Assisted reception operations and visitor communication.</li>
+      <li>Delivered tourist information ensuring smooth guest experience.</li>
+    </ul>
   </div>
 </div>
 
 <div class="timeline-item">
-  <div class="timeline-date">2022 – 2023</div>
+  <div class="timeline-date">May 2025 – Aug 2025</div>
   <div class="timeline-content glass-card">
-    <h3>Bohemia Inn</h3>
-    <div class="location">📍 Bohemia, Czech Republic</div>
-    <p>Managed hospitality operations and guest relations.</p>
-    <p>Coordinated accommodation services and event planning.</p>
-    <p>Enhanced guest experience through attentive service delivery.</p>
+    <h3>Hotel Receptionist</h3>
+    <div class="location">📍 Bohemia Inn Hotel Turnov, Czech Republic</div>
+    <ul>
+      <li>Managed check-in, check-out, payments, and reservations.</li>
+      <li>Communicated with international guests and provided travel guidance.</li>
+      <li>Supported daily front-desk and hospitality operations.</li>
+    </ul>
   </div>
 </div>
 
 <div class="timeline-item">
-  <div class="timeline-date">2021 – 2022</div>
+  <div class="timeline-date">Summer 2021 – 2022</div>
   <div class="timeline-content glass-card">
-    <h3>Sychrov Castle</h3>
-    <div class="location">📍 Sychrov, Czech Republic</div>
-    <p>Managed heritage site operations and visitor engagement.</p>
-    <p>Coordinated tours and educational programs.</p>
-    <p>Preserved and promoted cultural heritage experiences.</p>
+    <h3>Tour Guide</h3>
+    <div class="location">📍 Sychrov Castle, Czech Republic</div>
+    <ul>
+      <li>Conducted guided historical tours for visitors.</li>
+      <li>Organized visitor groups and maintained schedules.</li>
+      <li>Presented cultural information to international tourists.</li>
+    </ul>
   </div>
 </div>
 
 <div class="timeline-item">
   <div class="timeline-date">2020 – 2021</div>
   <div class="timeline-content glass-card">
-    <h3>HOŠKA TOUR</h3>
-    <div class="location">📍 Czech Republic</div>
-    <p>Developed tourism and travel service strategies.</p>
-    <p>Managed customer relationships and booking operations.</p>
-    <p>Coordinated group tours and travel experiences.</p>
+    <h3>Assistant Tour Guide</h3>
+    <div class="location">📍 HOŠKA TOUR Travel Agency, Czech Republic</div>
+    <ul>
+      <li>Assisted lead tour guide during international trips.</li>
+      <li>Supported logistics coordination and traveler assistance.</li>
+    </ul>
   </div>
 </div>
 
@@ -114,9 +86,9 @@ Senior Designer & Creative Technologist
 ## Education
 
 <ul class="education-list">
-  <li><strong>Design & Digital Media</strong> - Czech Technical University</li>
-  <li><strong>User Experience Design</strong> - Professional Certification</li>
-  <li><strong>Web Development & Interactive Design</strong> - Self-directed Learning</li>
+  <li><strong>University of Hradec Králové</strong> — B.A. Tourism Management (2024 – Present) | Faculty of Informatics and Management, Czech Republic</li>
+  <li><strong>Jan Amos Komenský Academy, Liberec</strong> — Post-secondary English Language Studies (2023 – 2024)</li>
+  <li><strong>Business Academy, Hotel School and Vocational School, Turnov</strong> — Tourism Program (2019 – 2023) | Organized and managed a study trip for 50 students</li>
 </ul>
 
 ---
@@ -124,20 +96,18 @@ Senior Designer & Creative Technologist
 ## Skills
 
 <ul class="skills-list">
-  <li><strong>UI/UX Design</strong> - Figma, Adobe XD, Sketch</li>
-  <li><strong>Web Development</strong> - HTML, CSS, JavaScript, React</li>
-  <li><strong>3D Visualization</strong> - Three.js, Blender</li>
-  <li><strong>Brand Strategy</strong> - Visual Identity, Design Systems</li>
-  <li><strong>Digital Strategy</strong> - User Research, Information Architecture</li>
-  <li><strong>Creative Direction</strong> - Conceptualization, Art Direction</li>
+  <li><strong>Tourism & Hospitality:</strong> Customer service, visitor coordination, event assistance, travel organization</li>
+  <li><strong>Software:</strong> Microsoft Office, rezervuj.com, Previo, AGNIS, Roundcube Webmail</li>
+  <li><strong>Languages:</strong> Czech (Native), English (B2 – Cambridge Certificate)</li>
+  <li><strong>Strengths:</strong> Communication, organization, teamwork, adaptability</li>
 </ul>
 
 ---
 
 ## Get in Touch
 
-[Email](mailto:petra@example.com) • [LinkedIn](https://linkedin.com) • [GitHub](https://github.com)
+[Email](mailto:petrasobrova10@seznam.cz) • [LinkedIn](https://linkedin.com) • [GitHub](https://github.com)
 
-© 2026 Petra Sobrova. All rights reserved.
+© 2026 Petra Šobrová. All rights reserved.
 
 </div>
