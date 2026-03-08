@@ -23,7 +23,7 @@ custom_js:
     </div>
   </div>
   <div class="hero-visual">
-    <img src="/assets/images/hero-illustration.png" alt="Petra Šobrová - Senior Designer Illustration">
+    <img src="/assets/images/hero-portrait.png" alt="Petra Šobrová - Senior Designer Portrait">
   </div>
 </div>
 
@@ -124,7 +124,7 @@ custom_js:
     <div class="grid-item">
       <strong>Languages</strong>
       <div class="description">Czech (Native), English (B2 – Cambridge Certificate)</div>
-    </li>
+    </div>
     <div class="grid-item">
       <strong>Strengths</strong>
       <div class="description">Communication, organization, teamwork, adaptability</div>
