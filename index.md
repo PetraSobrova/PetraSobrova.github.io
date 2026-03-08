@@ -26,63 +26,63 @@ custom_js:
 
 ---
 
-## Experience
+<div class="experience-section">
+  <h2>Experience</h2>
 
-<div class="timeline-item">
-  <div class="timeline-date">May 2023 – Present</div>
-  <div class="timeline-content glass-card">
-    <h3>Customer Service & Event Support</h3>
-    <div class="location">📍 SUNDISK – Žlutá Plovárna, Maloskalsko</div>
-    <ul>
-      <li>Provided customer service and managed sports equipment rentals.</li>
-      <li>Supported corporate events and tourism activities.</li>
-      <li>Assisted reception operations and visitor communication.</li>
-      <li>Delivered tourist information ensuring smooth guest experience.</li>
-    </ul>
+  <div class="timeline-item">
+    <div class="timeline-date">May 2023 – Present</div>
+    <div class="timeline-content glass-card">
+      <h3>Customer Service & Event Support</h3>
+      <div class="location">📍 SUNDISK – Žlutá Plovárna, Maloskalsko</div>
+      <ul>
+        <li>Provided customer service and managed sports equipment rentals.</li>
+        <li>Supported corporate events and tourism activities.</li>
+        <li>Assisted reception operations and visitor communication.</li>
+        <li>Delivered tourist information ensuring smooth guest experience.</li>
+      </ul>
+    </div>
   </div>
-</div>
 
-<div class="timeline-item">
-  <div class="timeline-date">May 2025 – Aug 2025</div>
-  <div class="timeline-content glass-card">
-    <h3>Hotel Receptionist</h3>
-    <div class="location">📍 Bohemia Inn Hotel Turnov</div>
-    <ul>
-      <li>Managed check-in, check-out, payments, and reservations.</li>
-      <li>Communicated with international guests and provided travel guidance.</li>
-      <li>Supported daily front-desk and hospitality operations.</li>
-    </ul>
+  <div class="timeline-item">
+    <div class="timeline-date">May 2025 – Aug 2025</div>
+    <div class="timeline-content glass-card">
+      <h3>Hotel Receptionist</h3>
+      <div class="location">📍 Bohemia Inn Hotel Turnov</div>
+      <ul>
+        <li>Managed check-in, check-out, payments, and reservations.</li>
+        <li>Communicated with international guests and provided travel guidance.</li>
+        <li>Supported daily front-desk and hospitality operations.</li>
+      </ul>
+    </div>
   </div>
-</div>
 
-<div class="timeline-item">
-  <div class="timeline-date">Summer 2021 – 2022</div>
-  <div class="timeline-content glass-card">
-    <h3>Tour Guide</h3>
-    <div class="location">📍 Sychrov Castle</div>
-    <ul>
-      <li>Conducted guided historical tours for visitors.</li>
-      <li>Organized visitor groups and maintained schedules.</li>
-      <li>Presented cultural information to international tourists.</li>
-    </ul>
+  <div class="timeline-item">
+    <div class="timeline-date">Summer 2021 – 2022</div>
+    <div class="timeline-content glass-card">
+      <h3>Tour Guide</h3>
+      <div class="location">📍 Sychrov Castle</div>
+      <ul>
+        <li>Conducted guided historical tours for visitors.</li>
+        <li>Organized visitor groups and maintained schedules.</li>
+        <li>Presented cultural information to international tourists.</li>
+      </ul>
+    </div>
   </div>
-</div>
 
-<div class="timeline-item">
-  <div class="timeline-date">2020 – 2021</div>
-  <div class="timeline-content glass-card">
-    <h3>Assistant Tour Guide</h3>
-    <div class="location">📍 HOŠKA TOUR Travel Agency</div>
-    <ul>
-      <li>Assisted lead tour guide during international trips.</li>
-      <li>Supported logistics coordination and traveler assistance.</li>
-    </ul>
+  <div class="timeline-item">
+    <div class="timeline-date">2020 – 2021</div>
+    <div class="timeline-content glass-card">
+      <h3>Assistant Tour Guide</h3>
+      <div class="location">📍 HOŠKA TOUR Travel Agency</div>
+      <ul>
+        <li>Assisted lead tour guide during international trips.</li>
+        <li>Supported logistics coordination and traveler assistance.</li>
+      </ul>
+    </div>
   </div>
 </div>
 
 ---
-
-## Education
 
 <div class="education-section">
   <h2>Education</h2>
@@ -106,8 +106,6 @@ custom_js:
 </div>
 
 ---
-
-## Skills
 
 <div class="skills-section">
   <h2>Skills</h2>
