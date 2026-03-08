@@ -28,7 +28,7 @@ class LiquidGlassBackground {
       height: 100%;
       z-index: 0;
       pointer-events: none;
-      opacity: 0.7;
+      opacity: 0.8;
     `;
     
     document.body.insertBefore(this.canvas, document.body.firstChild);
@@ -61,8 +61,8 @@ class LiquidGlassBackground {
     const waveFrequency = 0.008;
     const waveSpeed = 0.024; // 20% faster than 0.02
     
-    // Draw flowing water waves - Darker Blue Shade
-    this.ctx.fillStyle = `rgba(26, 58, 58, 0.12)`;
+    // Draw flowing water waves - Darker Blue Shade (Ritual Greenish-Blue)
+    this.ctx.fillStyle = `rgba(20, 42, 42, 0.15)`;
     
     for (let i = 0; i < 6; i++) {
       const yOffset = (this.canvas.height / 6) * i;
@@ -82,7 +82,7 @@ class LiquidGlassBackground {
     }
     
     // Draw flowing gradient lines - Darker Blue Accent
-    this.ctx.strokeStyle = `rgba(74, 143, 143, 0.18)`;
+    this.ctx.strokeStyle = `rgba(61, 122, 122, 0.2)`;
     this.ctx.lineWidth = 1.5;
     
     for (let i = 0; i < 4; i++) {
@@ -117,8 +117,8 @@ class LiquidGlassBackground {
       
       // Draw particle with subtle glow
       const gradient = this.ctx.createRadialGradient(particle.x, particle.y, 0, particle.x, particle.y, particle.radius * 1.5);
-      gradient.addColorStop(0, `rgba(74, 143, 143, ${particle.opacity})`);
-      gradient.addColorStop(1, `rgba(74, 143, 143, 0)`);
+      gradient.addColorStop(0, `rgba(61, 122, 122, ${particle.opacity})`);
+      gradient.addColorStop(1, `rgba(61, 122, 122, 0)`);
       
       this.ctx.fillStyle = gradient;
       this.ctx.beginPath();

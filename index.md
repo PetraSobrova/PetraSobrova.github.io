@@ -13,21 +13,24 @@ custom_js:
 
 <div class="w">
 
-# Petra Šobrová
-
-<div class="profile-section">
-  <div class="subtitle">Senior Designer & Creative Technologist</div>
-  <div class="contact-info">Czech Republic | (+420) 722 674 303 | petrasobrova10@seznam.cz | Born: 27 Nov 2003</div>
-  
-  <div class="profile-text">
-    Tourism Management undergraduate with professional experience in hospitality services, tourism operations, and event support. Specialized in guest communication, travel coordination, and high-end customer-facing environments.
+<div class="hero-container">
+  <div class="hero-content">
+    <h1 class="hero-title">Petra Šobrová</h1>
+    <div class="hero-subtitle">
+      <span class="highlight">Senior Designer & Creative Technologist</span><br>
+      Czech Republic | (+420) 722 674 303 | petrasobrova10@seznam.cz | Born: 27 Nov 2003<br><br>
+      <span class="highlight">Tourism Management undergraduate with professional experience in hospitality services, tourism operations, and event support. Specialized in guest communication, travel coordination, and high-end customer-facing environments.</span>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <img src="/assets/images/hero-illustration.png" alt="Petra Šobrová - Senior Designer Illustration">
   </div>
 </div>
 
 ---
 
 <div class="experience-section">
-  <h2>Experience</h2>
+  <h2 class="section-title">Experience</h2>
 
   <div class="timeline-item">
     <div class="timeline-date">May 2023 – Present</div>
@@ -85,54 +88,53 @@ custom_js:
 ---
 
 <div class="education-section">
-  <h2>Education</h2>
-  <ul class="education-list">
-    <li>
+  <h2 class="section-title">Education</h2>
+  <div class="grid-layout">
+    <div class="grid-item">
       <strong>University of Hradec Králové</strong>
       <div class="subtitle">B.A. Tourism Management</div>
       <div class="description">2024 – Present | Faculty of Informatics and Management, Czech Republic</div>
-    </li>
-    <li>
+    </div>
+    <div class="grid-item">
       <strong>Jan Amos Komenský Academy, Liberec</strong>
       <div class="subtitle">Post-secondary English Language Studies</div>
       <div class="description">2023 – 2024</div>
-    </li>
-    <li>
+    </div>
+    <div class="grid-item">
       <strong>Business Academy, Hotel School and Vocational School, Turnov</strong>
       <div class="subtitle">Tourism Program</div>
       <div class="description">2019 – 2023 | Organized and managed a study trip for 50 students</div>
-    </li>
-  </ul>
+    </div>
+  </div>
 </div>
 
 ---
 
 <div class="skills-section">
-  <h2>Skills</h2>
-  <ul class="skills-list">
-    <li>
+  <h2 class="section-title">Skills</h2>
+  <div class="grid-layout">
+    <div class="grid-item">
       <strong>Tourism & Hospitality</strong>
       <div class="description">Customer service, visitor coordination, event assistance, travel organization</div>
-    </li>
-    <li>
+    </div>
+    <div class="grid-item">
       <strong>Software</strong>
       <div class="description">Microsoft Office, rezervuj.com, Previo, AGNIS, Roundcube Webmail</div>
-    </li>
-    <li>
+    </div>
+    <div class="grid-item">
       <strong>Languages</strong>
       <div class="description">Czech (Native), English (B2 – Cambridge Certificate)</div>
     </li>
-    <li>
+    <div class="grid-item">
       <strong>Strengths</strong>
       <div class="description">Communication, organization, teamwork, adaptability</div>
-    </li>
-  </ul>
+    </div>
+  </div>
 </div>
 
 ---
 
 <footer>
-  <p>[Email](mailto:petrasobrova10@seznam.cz) • [LinkedIn](https://linkedin.com) • [GitHub](https://github.com)</p>
   <p>© 2026 Petra Šobrová. All rights reserved.</p>
 </footer>
 
