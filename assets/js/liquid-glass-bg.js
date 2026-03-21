@@ -59,7 +59,7 @@ class LiquidGlassBackground {
   drawWaterFlow() {
     const waveHeight = 35;
     const waveFrequency = 0.008;
-    const waveSpeed = 0.024; // 20% faster than 0.02
+    const waveSpeed = 0.006; // Slow flowing waves
     
     // Draw flowing water waves - Light Blue Shade
     this.ctx.fillStyle = `rgba(107, 182, 255, 0.15)`;
