@@ -17,9 +17,7 @@ custom_js:
   <div class="hero-content">
     <h1 class="hero-title">Petra Šobrová</h1>
     <div class="hero-subtitle">
-      <span class="highlight">Senior Designer & Creative Technologist</span><br>
-      Czech Republic | (+420) 722 674 303 | petrasobrova10@seznam.cz | Born: 27 Nov 2003<br><br>
-      <span class="highlight">Tourism Management undergraduate with professional experience in hospitality services, tourism operations, and event support. Specialized in guest communication, travel coordination, and high-end customer-facing environments.</span>
+      Czech Republic | (+420) 722 674 303 | petrasobrova10@seznam.cz | Born: 27 Nov 2003
     </div>
   </div>
 </div>
