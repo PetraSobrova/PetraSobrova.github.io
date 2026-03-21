@@ -88,7 +88,7 @@ class LiquidGlassBackground {
     for (let i = 0; i < 4; i++) {
       const yOffset = (this.canvas.height / 4) * i + Math.sin(this.time * 0.012 + i) * 15;
       
-      this.beginPath();
+      this.ctx.beginPath();
       this.ctx.moveTo(0, yOffset);
       
       for (let x = 0; x <= this.canvas.width; x += 20) {
