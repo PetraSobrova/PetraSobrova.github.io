@@ -92,8 +92,8 @@ class GlobalCities {
     container.style.cssText = `
       position: relative;
       z-index: 2;
-      margin: 3rem 0;
-      padding: 4rem 0;
+      margin: 0;
+      padding: 0;
     `;
     
     // Main timeline line
@@ -102,7 +102,7 @@ class GlobalCities {
       position: relative;
       height: 2px;
       background: linear-gradient(90deg, rgba(0, 113, 227, 0.2) 0%, rgba(0, 113, 227, 0.5) 50%, rgba(0, 113, 227, 0.2) 100%);
-      margin: 3rem 0;
+      margin: 1rem 0;
       box-shadow: 0 0 20px rgba(0, 113, 227, 0.2);
     `;
     
