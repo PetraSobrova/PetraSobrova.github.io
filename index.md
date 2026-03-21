@@ -22,9 +22,6 @@ custom_js:
       <span class="highlight">Tourism Management undergraduate with professional experience in hospitality services, tourism operations, and event support. Specialized in guest communication, travel coordination, and high-end customer-facing environments.</span>
     </div>
   </div>
-  <div class="hero-visual">
-    <img src="/assets/images/hero-portrait.png" alt="Petra Šobrová - Senior Designer Portrait">
-  </div>
 </div>
 
 ---
