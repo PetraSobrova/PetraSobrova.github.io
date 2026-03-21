@@ -13,13 +13,11 @@ custom_js:
 
 <div class="w">
 
-<div class="hero-container">
-  <div class="hero-content">
-    <h1 class="hero-title">Petra Šobrová</h1>
-    <div class="hero-subtitle">
-      Czech Republic | (+420) 722 674 303 | petrasobrova10@seznam.cz | Born: 27 Nov 2003
-    </div>
-  </div>
+<!-- Intro card - appears below cities visualization -->
+<div class="intro-card glass-card">
+  <h2 class="intro-name">Petra Šobrová</h2>
+  <p class="intro-tagline">Tourism Management undergraduate with professional experience in hospitality services, tourism operations, and event support. Specialized in guest communication, travel coordination, and high-end customer-facing environments.</p>
+  <div class="intro-contact">📍 Czech Republic | (+420) 722 674 303 | petrasobrova10@seznam.cz | Born: 27 Nov 2003</div>
 </div>
 
 ---
