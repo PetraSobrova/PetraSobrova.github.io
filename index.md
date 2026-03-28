@@ -47,7 +47,7 @@ custom_js:
 
     <div class="hero-aside">
       <div class="hero-meta-card">
-        <div class="hero-stat">12</div>
+        <div class="hero-stat">15</div>
         <div class="hero-stat-label">Countries Visited</div>
         <div class="hero-divider"></div>
         <div class="hero-stat">3</div>
@@ -93,6 +93,23 @@ custom_js:
     </div>
 
     <div class="exp-item reveal reveal-delay-1">
+      <div class="exp-period">Aug 2023<br/>— Present</div>
+      <div class="exp-card">
+        <div class="exp-card-header">
+          <h3>Assistant Tour Guide</h3>
+        </div>
+        <div class="exp-location">
+          <span class="exp-location-dot"></span>
+          HOŠKA TOUR Travel Agency
+        </div>
+        <ul class="exp-highlights">
+          <li>Assisted lead tour guide during international trips.</li>
+          <li>Supported logistics coordination and traveller assistance.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item reveal reveal-delay-2">
       <div class="exp-period">May 2023<br/>— Present</div>
       <div class="exp-card">
         <div class="exp-card-header">
@@ -112,7 +129,7 @@ custom_js:
       </div>
     </div>
 
-    <div class="exp-item reveal reveal-delay-2">
+    <div class="exp-item reveal reveal-delay-3">
       <div class="exp-period">May 2025<br/>— Aug 2025</div>
       <div class="exp-card">
         <div class="exp-card-header">
@@ -131,7 +148,7 @@ custom_js:
       </div>
     </div>
 
-    <div class="exp-item reveal reveal-delay-3">
+    <div class="exp-item reveal reveal-delay-4">
       <div class="exp-period">Summer<br/>2021–2022</div>
       <div class="exp-card">
         <div class="exp-card-header">
@@ -145,23 +162,6 @@ custom_js:
           <li>Conducted guided historical tours for visitors.</li>
           <li>Organised visitor groups and maintained schedules.</li>
           <li>Presented cultural information to international tourists.</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="exp-item reveal reveal-delay-4">
-      <div class="exp-period">2020<br/>— 2021</div>
-      <div class="exp-card">
-        <div class="exp-card-header">
-          <h3>Assistant Tour Guide</h3>
-        </div>
-        <div class="exp-location">
-          <span class="exp-location-dot"></span>
-          HOŠKA TOUR Travel Agency
-        </div>
-        <ul class="exp-highlights">
-          <li>Assisted lead tour guide during international trips.</li>
-          <li>Supported logistics coordination and traveller assistance.</li>
         </ul>
       </div>
     </div>
@@ -188,7 +188,7 @@ custom_js:
       <p class="edu-desc">Faculty of Informatics and Management, Czech Republic.</p>
     </div>
 
-    <div class="edu-card reveal-card reveal reveal-delay-2">
+    <div class="edu-card reveal-card reveal reveal-delay-3">
       <div class="edu-card-icon">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
       </div>
@@ -198,7 +198,7 @@ custom_js:
       <p class="edu-desc">Liberec, Czech Republic.</p>
     </div>
 
-    <div class="edu-card reveal-card reveal reveal-delay-3">
+    <div class="edu-card reveal-card reveal reveal-delay-2">
       <div class="edu-card-icon">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
       </div>
@@ -234,7 +234,7 @@ custom_js:
       </div>
     </div>
 
-    <div class="skill-card reveal-card reveal reveal-delay-2">
+    <div class="skill-card reveal-card reveal reveal-delay-3">
       <div class="skill-card-icon">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
       </div>
@@ -247,7 +247,7 @@ custom_js:
       </div>
     </div>
 
-    <div class="skill-card reveal-card reveal reveal-delay-3">
+    <div class="skill-card reveal-card reveal reveal-delay-2">
       <div class="skill-card-icon">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
       </div>
