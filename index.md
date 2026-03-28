@@ -32,9 +32,9 @@ custom_js:
       <h1 class="hero-name">Petra<br/>Šobrová</h1>
       <p class="hero-name-sub">turning places into experiences</p>
       <p class="hero-bio">
-        Tourism management student at the University of Hradec Králové with a
-        decade of hands-on hospitality and guiding experience — from castle
-        tours in Bohemia to five-star hotel front desks.
+        Tourism management student at the University of Hradec Králové with
+        hands-on hospitality and guiding experience — from castle tours in
+        Bohemia to five-star hotel front desks.
       </p>
       <div class="hero-actions">
         <a href="#experience" class="btn-primary">
@@ -59,8 +59,7 @@ custom_js:
       </div>
       <ul class="hero-contact-list">
         <li><a href="mailto:petrasobrova10@seznam.cz">petrasobrova10@seznam.cz</a></li>
-        <li><a href="#">LinkedIn</a></li>
-      </ul>
+        </ul>
     </div>
   </div>
 </section>
@@ -248,11 +247,11 @@ custom_js:
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><path d="M5 5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16l-7-3.5L5 21V5z"/></svg>
       </div>
       <h3>Languages</h3>
-      <div class="skill-tags">
-        <span class="skill-tag">Czech — Native</span>
-        <span class="skill-tag">English — B2</span>
-        <span class="skill-tag">Cambridge Certificate</span>
-      </div>
+      <ul class="lang-list">
+        <li>Czech</li>
+        <li>English</li>
+        <li>German</li>
+      </ul>
     </div>
 
   </div>
@@ -271,10 +270,6 @@ custom_js:
         <a href="mailto:petrasobrova10@seznam.cz" class="contact-link primary">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
           Send an email
-        </a>
-        <a href="#" class="contact-link secondary">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-          LinkedIn
         </a>
       </div>
     </div>

@@ -743,77 +743,77 @@
  }
 
  .skill-card {
-   background: $bg-card;
-   border: 1px solid $border;
-   border-radius: $r-lg;
-   padding: 1.75rem;
-   box-shadow: $shadow-card;
-   transition: all $dur-base $ease;
-   position: relative;
-   overflow: hidden;
+   background: #fff;
+   border: 1px solid rgba(44,44,36,0.08);
+   border-radius: 16px;
+   padding: 1.5rem;
+   box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03);
+   transition: all 0.25s cubic-bezier(0.34,1.56,0.64,1);
 
    &:hover {
-     box-shadow: $shadow-float;
-     transform: translateY(-3px) rotate(0.3deg);
+     transform: translateY(-4px);
+     box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+     border-color: rgba(93,112,82,0.2);
    }
 
-   // Alternating organic corner blobs
-   &:nth-child(1) { border-radius: 63% 37% 30% 70% / 60% 30% 70% 40%; }
-   &:nth-child(2) { border-radius: 37% 63% 70% 30% / 30% 70% 30% 70%; }
-   &:nth-child(3) { border-radius: 55% 45% 40% 60% / 50% 60% 40% 50%; }
-   &:nth-child(4) { border-radius: 40% 60% 55% 45% / 45% 55% 45% 55%; }
- }
+   .skill-card-icon {
+     width: 44px; height: 44px;
+     border-radius: 10px;
+     background: rgba(93,112,82,0.10);
+     display: flex; align-items: center; justify-content: center;
+     color: #5D7052;
+     margin-bottom: 1.25rem;
+     transition: all 0.25s cubic-bezier(0.34,1.56,0.64,1);
 
- .skill-card-icon {
-   width: 40px; height: 40px;
-   border-radius: $r-md;
-   background: $moss-light;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   margin-bottom: 1.25rem;
-   color: $moss;
-   transition: all $dur-base $ease;
- }
+     svg { display: block; }
+   }
 
- .skill-card:hover .skill-card-icon {
-   background: $moss;
-   color: $white;
-   transform: scale(1.08);
- }
+   &:hover .skill-card-icon {
+     background: #5D7052;
+     color: #fff;
+   }
 
- .skill-card h3 {
-   font-family: $font-serif;
-   font-size: 1.15rem;
-   font-weight: 600;
-   letter-spacing: -0.02em;
-   color: $fg;
-   margin-bottom: 0.75rem;
+   h3 {
+     font-size: 1rem; font-weight: 600;
+     color: #2C2C24; margin-bottom: 1rem;
+     letter-spacing: -0.02em;
+   }
  }
 
  .skill-tags {
-   display: flex;
-   flex-wrap: wrap;
-   gap: 0.5rem;
+   display: flex; flex-wrap: wrap; gap: 0.5rem;
  }
 
  .skill-tag {
-   font-size: 0.75rem;
+   font-size: 0.72rem;
    font-weight: 500;
-   padding: 0.3rem 0.8rem;
-   border-radius: $r-pill;
-   background: $bg-stone;
-   color: $fg-muted;
-   border: 1px solid $border;
-   transition: all $dur-fast $ease;
+   padding: 0.3rem 0.75rem;
+   border-radius: 8px;
+   background: rgba(44,44,36,0.06);
+   color: #2C2C24;
+   transition: all 0.25s ease;
    cursor: default;
 
    &:hover {
-     background: $moss-light;
-     border-color: $moss;
-     color: $moss;
+     background: rgba(93,112,82,0.14);
+     color: #5D7052;
    }
  }
+
+ .lang-list {
+   list-style: none;
+   display: flex; flex-direction: column; gap: 0.5rem;
+
+   li {
+     font-size: 0.9rem;
+     color: #2C2C24;
+     padding: 0.4rem 0.75rem;
+     background: rgba(44,44,36,0.05);
+     border-radius: 8px;
+     font-weight: 500;
+   }
+ }
+
 
  // -- CONTACT / FOOTER ------------------------------------------------
  .contact-section {
