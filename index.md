@@ -32,8 +32,8 @@ custom_js:
       <h1 class="hero-name">Petra<br/>Šobrová</h1>
       <p class="hero-name-sub">turning places into experiences</p>
       <p class="hero-bio">
-        Tourism management student at the University of Hradec Králové with
-        hands-on hospitality and guiding experience — from castle tours in
+        Tourism management student with
+        hospitality and guiding experience - from castle tours in
         Bohemia to five-star hotel front desks.
       </p>
       <div class="hero-actions">
