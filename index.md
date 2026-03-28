@@ -73,6 +73,25 @@ custom_js:
   </div>
   <div class="exp-list">
 
+    <div class="exp-item reveal">
+      <div class="exp-period">Mar 2026<br/>— Present</div>
+      <div class="exp-card">
+        <div class="exp-card-header">
+          <h3>Event Operations & Sales Intern</h3>
+          <span class="exp-badge">Current</span>
+        </div>
+        <div class="exp-location">
+          <span class="exp-location-dot"></span>
+          Wine Stories Barcelona
+        </div>
+        <ul class="exp-highlights">
+          <li>Coordinating logistics and operations for private wine tours and guest experiences.</li>
+          <li>Supporting sales and bookings by assisting customer inquiries and tailoring tour offerings.</li>
+          <li>Assisting in event execution, ensuring smooth guest experience and on-site coordination.</li>
+        </ul>
+      </div>
+    </div>
+
     <div class="exp-item reveal reveal-delay-1">
       <div class="exp-period">May 2023<br/>— Present</div>
       <div class="exp-card">
