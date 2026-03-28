@@ -47,8 +47,8 @@ custom_js:
 
     <div class="hero-aside">
       <div class="hero-meta-card">
-        <div class="hero-stat">7+</div>
-        <div class="hero-stat-label">Years Experience</div>
+        <div class="hero-stat">12</div>
+        <div class="hero-stat-label">Countries Visited</div>
         <div class="hero-divider"></div>
         <div class="hero-stat">3</div>
         <div class="hero-stat-label">Languages</div>
@@ -247,11 +247,11 @@ custom_js:
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><path d="M5 5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16l-7-3.5L5 21V5z"/></svg>
       </div>
       <h3>Languages</h3>
-      <ul class="lang-list">
-        <li>Czech</li>
-        <li>English</li>
-        <li>German</li>
-      </ul>
+      <div class="skill-tags">
+        <span class="skill-tag">Czech</span>
+        <span class="skill-tag">English</span>
+        <span class="skill-tag">German</span>
+      </div>
     </div>
 
   </div>

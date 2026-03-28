@@ -738,7 +738,7 @@
  // -- SKILLS ----------------------------------------------------------
  .skills-grid {
    display: grid;
-   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+   grid-template-columns: repeat(2, 1fr);
    gap: 1.25rem;
  }
 
@@ -946,7 +946,7 @@
    section { padding: clamp(3rem, 7vw, 5rem) 0; }
 
    .edu-grid { grid-template-columns: 1fr; }
-   .skills-grid { grid-template-columns: 1fr 1fr; }
+   .skills-grid { grid-template-columns: 1fr; }
    .contact-inner { grid-template-columns: 1fr; }
    .footer-bottom { flex-direction: column; align-items: flex-start; }
  }
